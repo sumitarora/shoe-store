@@ -2,6 +2,8 @@
 
 <%@ Register src="UserControls/DepartmentsList.ascx" tagname="DepartmentsList" tagprefix="uc1" %>
 
+<%@ Register src="UserControls/CategoriesList.ascx" tagname="CategoriesList" tagprefix="uc2" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -25,10 +27,14 @@
     </div>
     <table style="border:1px solid gray; border-collapse: collapse;">
     <tr>
-        <td class="left"> 
+    <td class="left"> 
     <h2>Departments</h2>
     <ol>
-        <uc1:DepartmentsList ID="DepartmentsList1" runat="server" />
+        <uc1:DepartmentsList ID="DepartmentsList1" runat="server" />        
+    </ol>
+    <h2>Categories</h2>
+    <ol>
+        <uc2:CategoriesList ID="CategoriesList1" runat="server" />
     </ol>
     <td class="right">
     <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
