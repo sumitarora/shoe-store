@@ -24,6 +24,16 @@
         <div class="seachbuttonDiv"><a href="#">
             <img src="images/search-button.png" style="height: 43px; width: 124px; margin-top:2px" /></a>
         </div>
+       
+        <div class="mycart">
+        <div class="top-links">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Checkout</a></li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+        </div>
+        <a href="#" title="View My Cart"><img src="Images/mycart.png" /></a></div>
     </div>
     <table style="border:1px solid gray; border-collapse: collapse;">
     <tr>
