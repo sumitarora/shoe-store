@@ -9,7 +9,7 @@
       ToolTip='<%# HttpUtility.HtmlEncode(Eval("Description").ToString()) %>'
       CssClass='<%# Eval("CategoryID").ToString() ==
                Request.QueryString["CategoryID"] ?
-               "CategorySelected" : "CategoryUnselected" %>'>>
+               "activeLink" : "" %>'>>
     </asp:HyperLink>
     </li>
   </ItemTemplate>

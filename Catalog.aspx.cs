@@ -39,5 +39,7 @@ public partial class Catalog : System.Web.UI.Page
             // Set the title of the page
             this.Title = HttpUtility.HtmlEncode(ShoeShopConfiguration.SiteName + ": " + dd.Name);
         }
+
+        
     }
 }

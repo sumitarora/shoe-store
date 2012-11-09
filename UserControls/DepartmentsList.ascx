@@ -3,9 +3,13 @@
   <HeaderStyle CssClass="DepartmentsListHead" />
   <ItemTemplate> 
     <li>
-    <asp:HyperLink ID="HyperLink1" Runat="server" NavigateUrl='<%# Link.ToDepartment(Eval("DepartmentID").ToString())%>'
+    <asp:HyperLink ID="HyperLink1" Runat="server" 
+    NavigateUrl='<%# Link.ToDepartment(Eval("DepartmentID").ToString())%>'
     Text='<%# HttpUtility.HtmlEncode(Eval("Name").ToString()) %>'
-    ToolTip='<%# HttpUtility.HtmlEncode(Eval("Description").ToString()) %>'>
+    ToolTip='<%# HttpUtility.HtmlEncode(Eval("Description").ToString()) %>'
+    CssClass='<%# Eval("DepartmentID").ToString() ==
+               Request.QueryString["DepartmentID"] ?
+               "activeLink" : "" %>'>
     </asp:HyperLink>
     </li>
    

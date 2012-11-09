@@ -15,5 +15,7 @@ public partial class UserControls_DepartmentsList : System.Web.UI.UserControl
         list.DataSource = CatalogAccess.GetDepartments();
         // Needed to bind the data bound controls to the data source
         list.DataBind();
+        string departmentId = Request.QueryString["DepartmentID"];
+        string linkID = "D" + departmentId;
     }
 }
