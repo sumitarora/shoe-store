@@ -7,6 +7,8 @@
 a, img 
 {
     border:none;
+    font-weight:normal;
+    color:#0000FF;
 }
 
 .window 
@@ -44,9 +46,10 @@ a, img
 .footer 
 {
     clear:both;
-    height:100px;    
+    height:50px;    
     border:1px solid gray;
     padding-left:350px;
+    padding-top:30px;
 }
 
 .search
@@ -103,7 +106,27 @@ ol li a:hover
     color:White;
 }
 
-table
+.mycart
 {
-  
+    float:right;
+    width:100px;
+    margin-left: 40px;
+}
+
+.top-links
+{
+    float:right;
+}
+
+.top-links ul
+{
+    list-style-type: none;
+    height: 17px;
+    width: 200px;
+}
+
+.top-links ul li
+{
+    float:left;
+    padding-left:10px;
 }

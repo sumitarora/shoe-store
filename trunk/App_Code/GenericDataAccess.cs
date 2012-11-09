@@ -48,8 +48,7 @@ public static class GenericDataAccess
         // Obtain the database connection string
         string connectionString = ShoeShopConfiguration.DbConnectionString;
         // Create a new data provider factory
-        DbProviderFactory factory = DbProviderFactories.
-        GetFactory(dataProviderName);
+        DbProviderFactory factory = DbProviderFactories.GetFactory(dataProviderName);
         // Obtain a database specific connection object
         DbConnection conn = factory.CreateConnection();
         // Set the connection string
