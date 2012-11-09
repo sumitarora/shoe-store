@@ -2,16 +2,16 @@
 <asp:DataList ID="list" runat="server" Width="200px" CssClass="DepartmentsList">
   <HeaderStyle CssClass="DepartmentsListHead" />
   <HeaderTemplate>
-    Choose a Department
+    <<i>Select a department from the list</i>>
   </HeaderTemplate>  
   <ItemTemplate>
-    <asp:HyperLink 
-ID="HyperLink1" 
-Runat="server" 
-NavigateUrl='<%# Link.ToDepartment(Eval("DepartmentID").ToString())%>'
-Text='<%# HttpUtility.HtmlEncode(Eval("Name").ToString()) %>'
-ToolTip='<%# HttpUtility.HtmlEncode(Eval("Description").ToString()) %>'
-CssClass='<%# Eval("DepartmentID").ToString() == Request.QueryString["DepartmentID"] ? "DepartmentSelected" : "DepartmentUnselected" %>'>
+ 
+    <li>
+    <asp:HyperLink ID="HyperLink1" Runat="server" NavigateUrl='<%# Link.ToDepartment(Eval("DepartmentID").ToString())%>'
+    Text='<%# HttpUtility.HtmlEncode(Eval("Name").ToString()) %>'
+    ToolTip='<%# HttpUtility.HtmlEncode(Eval("Description").ToString()) %>'>
     </asp:HyperLink>
+    </li>
+   
   </ItemTemplate>
 </asp:DataList>
