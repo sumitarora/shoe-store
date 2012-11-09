@@ -9,30 +9,38 @@
   <title>BalloonShop: Online Store Demo</title>
   <asp:ContentPlaceHolder id="head" runat="server">
   </asp:ContentPlaceHolder>
-  <link type="text/css" href="App_Themes/ShoeShopDefault/ShoeShop.css" />
+  <link rel="stylesheet" type="text/css" href="App_Themes/ShoeShopDefault/mainpage.css" />
  </head>
 <body>
   <form id="form1" runat="server">
-    <div class="Window">
-      <div class="Main">
-        <div class="Left">
-          <div class="Container">
-            <uc1:DepartmentsList ID="DepartmentsList1" runat="server" />
-          </div>
+<div class="window">
+    <div class="header">
+        <div class="site-name">Shoe Store<img alt=""  src="images/logo.png" /></div>
+        <div class="search">
+            <input type="text" name="skeyword" id="skeyword" class="searchbox" />  
         </div>
-        <div class="Right">
-          <div class="Header">
-            <asp:HyperLink ID="HeaderLink" ImageUrl="~/Images/BalloonShopLogo.png" 
-         NavigateUrl="~/" runat="server" ToolTip="BalloonShop Logo" />  
-          </div>
-          <div class="Contents">           
-            Place contents here
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
-          </div>     
+        <div class="seachbuttonDiv"><a href="#">
+            <img src="images/search-button.png" style="height: 43px; width: 124px; margin-top:2px" /></a>
         </div>
-      </div>
     </div>
+    <table style="border:1px solid gray; border-collapse: collapse;">
+    <tr>
+        <td class="left"> 
+    <h2>Departments</h2>
+    <ol>
+        <uc1:DepartmentsList ID="DepartmentsList1" runat="server" />
+    </ol>
+    <td class="right">
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+    </td>
+    </tr>
+    </table>
+    <div class="footer">
+    Copyright © 2012 ShoeStore.com All Rights Reserved
+    </div>
+</div>
+
   </form>
 </body>
 </html>
