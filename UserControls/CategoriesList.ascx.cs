@@ -16,8 +16,7 @@ public partial class UserControls_CategoriesList : System.Web.UI.UserControl
         {
             // Catalog.GetCategoriesInDepartment returns a DataTable
             // object containing category data, which is displayed by the DataList
-            list.DataSource =
-              CatalogAccess.GetCategoriesInDepartment(departmentId);
+            list.DataSource = CatalogAccess.GetCategoriesInDepartment(departmentId);
             // Needed to bind the data bound controls to the data source
             list.DataBind();
         }

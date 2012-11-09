@@ -5,14 +5,10 @@
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
     <h2>
-        Welcome to ASP.NET!
+        Welcome to ShoeShop
     </h2>
-    <p>
-        To learn more about ASP.NET visit <a href="http://www.asp.net" title="ASP.NET Website">www.asp.net</a>.
-    </p>
-    <p>
-        You can also find <a href="http://go.microsoft.com/fwlink/?LinkID=152368&amp;clcid=0x409"
-            title="MSDN ASP.NET Docs">documentation on ASP.NET at MSDN</a>.
-    </p>
+    <h2>
+        <span class="CatalogDescription">This week we have a special price for these fantastic products: </span>
+    </h2>
 </asp:Content>
 
