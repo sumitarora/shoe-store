@@ -1,0 +1,203 @@
+USE [shoeshop]
+GO
+/****** Object:  ForeignKey [FK_Category_Department]    Script Date: 11/09/2012 16:24:02 ******/
+ALTER TABLE [dbo].[Category] DROP CONSTRAINT [FK_Category_Department]
+GO
+/****** Object:  ForeignKey [FK_ProductCategory_Category]    Script Date: 11/09/2012 16:24:03 ******/
+ALTER TABLE [dbo].[ProductCategory] DROP CONSTRAINT [FK_ProductCategory_Category]
+GO
+/****** Object:  ForeignKey [FK_ProductCategory_Product]    Script Date: 11/09/2012 16:24:03 ******/
+ALTER TABLE [dbo].[ProductCategory] DROP CONSTRAINT [FK_ProductCategory_Product]
+GO
+/****** Object:  Table [dbo].[ProductCategory]    Script Date: 11/09/2012 16:24:03 ******/
+ALTER TABLE [dbo].[ProductCategory] DROP CONSTRAINT [FK_ProductCategory_Category]
+GO
+ALTER TABLE [dbo].[ProductCategory] DROP CONSTRAINT [FK_ProductCategory_Product]
+GO
+DROP TABLE [dbo].[ProductCategory]
+GO
+/****** Object:  Table [dbo].[Category]    Script Date: 11/09/2012 16:24:02 ******/
+ALTER TABLE [dbo].[Category] DROP CONSTRAINT [FK_Category_Department]
+GO
+DROP TABLE [dbo].[Category]
+GO
+/****** Object:  Table [dbo].[Department]    Script Date: 11/09/2012 16:24:03 ******/
+DROP TABLE [dbo].[Department]
+GO
+/****** Object:  Table [dbo].[Product]    Script Date: 11/09/2012 16:24:03 ******/
+DROP TABLE [dbo].[Product]
+GO
+/****** Object:  Table [dbo].[Product]    Script Date: 11/09/2012 16:24:03 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Product](
+	[ProductID] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](50) NOT NULL,
+	[Description] [nvarchar](max) NOT NULL,
+	[Price] [money] NOT NULL,
+	[Thumbnail] [nvarchar](50) NULL,
+	[Image] [nvarchar](50) NULL,
+	[PromoFront] [bit] NOT NULL,
+	[PromoDept] [bit] NOT NULL,
+ CONSTRAINT [PK_Product] PRIMARY KEY CLUSTERED 
+(
+	[ProductID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET IDENTITY_INSERT [dbo].[Product] ON
+INSERT [dbo].[Product] ([ProductID], [Name], [Description], [Price], [Thumbnail], [Image], [PromoFront], [PromoDept]) VALUES (1, N'RTS 429-Black', N'RED TAPE shoes never go out of date. A true classic for every guy''s wardrobe and once teamed up with the formals will have you looking your best for any official occasion.', 120.9900, N'4.jpg', N'4.jpg', 0, 1)
+INSERT [dbo].[Product] ([ProductID], [Name], [Description], [Price], [Thumbnail], [Image], [PromoFront], [PromoDept]) VALUES (2, N'RTS 5181-Black', N'Black is bold, trendy and classic! This dressy casual black shoe from REDTAPE is an epitome of classiness and grace. With a re-introduction to the timeless design it combines show stealing pleasure with an undeniable amount of originality showcasing your sense of style.', 115.9900, N'5.jpg', N'5.jpg', 0, 0)
+INSERT [dbo].[Product] ([ProductID], [Name], [Description], [Price], [Thumbnail], [Image], [PromoFront], [PromoDept]) VALUES (3, N'Red Tape Men 6451-BLACK', N'Black is bold, trendy and classic! This dressy casual black shoe from REDTAPE is an epitome of classiness and grace. With a re-introduction to the timeless design it combines show stealing pleasure with an undeniable amount of originality showcasing your sense of style.', 119.0000, N'6.jpg', N'6.jpg', 0, 0)
+INSERT [dbo].[Product] ([ProductID], [Name], [Description], [Price], [Thumbnail], [Image], [PromoFront], [PromoDept]) VALUES (64, N'Red Tape Men 6421-BLACK', N'Life is hard; finding a comfortable shoe shouldn''t be. Slip into comfort when you slip into this handsome black leather loafer from RED TAPE. Classic moc stitch and a treaded rubber sole add to the overall easy style of this sharp shoe.', 220.0000, N'7.jpg', N'7.jpg', 0, 0)
+INSERT [dbo].[Product] ([ProductID], [Name], [Description], [Price], [Thumbnail], [Image], [PromoFront], [PromoDept]) VALUES (65, N'Red Tape Men 6292-BROWN', N'Create a strong, fashionable look with this formal brown shoe from RED TAPE. Its newfangled design with excellent comfort is a fabulous fashion choice that provides an extra touch to your personality.', 100.0000, N'8.jpg', N'8.jpg', 0, 0)
+INSERT [dbo].[Product] ([ProductID], [Name], [Description], [Price], [Thumbnail], [Image], [PromoFront], [PromoDept]) VALUES (66, N'Red Tape Men 6641-BLACK', N'Those who want classy and elegant shoes for formal parties and corporate events, grab this black RED TAPE shoe. Crafted for comfort and style, they get a look of sophistication from the pointed toe and detail stitching. So, now get ready to take the next step on the corporate ladder in style.', 105.0000, N'9.jpg', N'9.jpg', 0, 0)
+INSERT [dbo].[Product] ([ProductID], [Name], [Description], [Price], [Thumbnail], [Image], [PromoFront], [PromoDept]) VALUES (67, N'Red Tape Men 5931-BLACK', N'Put a little extra polish in your look with this black shoe from REDTAPE. Textured leather puts this precisely on the cutting edge with a look that''s not to be trifled and the sleek sole gives you excellent touch to match your impeccable taste.', 109.0000, N'10.jpg', N'10.jpg', 0, 0)
+INSERT [dbo].[Product] ([ProductID], [Name], [Description], [Price], [Thumbnail], [Image], [PromoFront], [PromoDept]) VALUES (68, N'PRODUCT CODE: 22896', N'Smooth textured leather loafers from woodland for men with a refined, upraised heel. For the debonair who pushes the sartorial envelope as much as he can. Style this with flat front trousers, a tonal blazer and a crisp shirt. ', 150.0000, N'11.jpg', N'11.jpg', 0, 0)
+INSERT [dbo].[Product] ([ProductID], [Name], [Description], [Price], [Thumbnail], [Image], [PromoFront], [PromoDept]) VALUES (69, N'PRODUCT CODE: 22818', N'the giant in the outdoor shoe industry, has come up with this rugged shoe with a refined stance. A cheeky take on the classic penny loafer, this two-hole lace up leather shoe also references the conservative derby in its styling. Wear this with chinos or denims and a checked casual shirt or a tee. Style this with a rugged belt.', 107.0000, N'12.jpg', N'12.jpg', 0, 0)
+INSERT [dbo].[Product] ([ProductID], [Name], [Description], [Price], [Thumbnail], [Image], [PromoFront], [PromoDept]) VALUES (91, N'Giorgio BUCKLE MOC TOE175711', N'Elegent and stylish', 123.0000, N'13.jpg', N'13.jpg', 0, 0)
+INSERT [dbo].[Product] ([ProductID], [Name], [Description], [Price], [Thumbnail], [Image], [PromoFront], [PromoDept]) VALUES (94, N' SUEDE CAPTOE OXFORDS 10D', N'Gentleman pair, fabulous shoes.', 35.0000, N'14.jpg', N'14.jpg', 0, 0)
+INSERT [dbo].[Product] ([ProductID], [Name], [Description], [Price], [Thumbnail], [Image], [PromoFront], [PromoDept]) VALUES (95, N'BROWN LEATHER OXFORDS SIZE 9 ', N' Brand:GIORGIO ARMANI', 50.0000, N'15.jpg', N'15.jpg', 0, 0)
+INSERT [dbo].[Product] ([ProductID], [Name], [Description], [Price], [Thumbnail], [Image], [PromoFront], [PromoDept]) VALUES (96, N'Red Chief 6004 Black', N'Get the ease of your favorite slip on and the polished style of your best dress shoe with this black offering from RED CHIEF. Perfect for the office or for adding a dapper finish to an evening on the town.So, slip into a look that''s contemporary and refined!', 75.0000, N'16.jpg', N'16.jpg', 0, 0)
+INSERT [dbo].[Product] ([ProductID], [Name], [Description], [Price], [Thumbnail], [Image], [PromoFront], [PromoDept]) VALUES (97, N'Red Chief Men RC1853 BLACK', N'Impeccably styled, this black derby from RED CHIEF is an instant classic. The round toe and slightly elevated heel makes for an updated look while the sleek moc stitching is positively timeless.', 89.0000, N'17.jpg', N'17.jpg', 0, 0)
+INSERT [dbo].[Product] ([ProductID], [Name], [Description], [Price], [Thumbnail], [Image], [PromoFront], [PromoDept]) VALUES (98, N'Reebok comander', N'Run an extra mile in ultimate comfort and style with this beige sneak from the latest edition of REEBOK. Take a smooth step and kick back in retro style with this trendy street fashion sneaker, which gives you the grip you need to take your self anywhere.', 60.0000, N'18.jpg', N'18.jpg', 0, 0)
+INSERT [dbo].[Product] ([ProductID], [Name], [Description], [Price], [Thumbnail], [Image], [PromoFront], [PromoDept]) VALUES (99, N'Innova-All Black', N'Enjoy the full day comfort and activeness in this shoe by REEBOK. The use of two Velcro fasteners in place of laces provides personalized fit and speedy turn up. Whereas padded collar and cushioned footbed enhance its feature list.', 78.0000, N'19.jpg', N'19.jpg', 0, 0)
+INSERT [dbo].[Product] ([ProductID], [Name], [Description], [Price], [Thumbnail], [Image], [PromoFront], [PromoDept]) VALUES (100, N'PUMA II Biz Ind- white-flame scarlet', N'Stay relaxed and look trendy on the weekend with this PUMA II BIZ white sneaker. Try this classic version to add a little old school flavor to your wardrobe as it strides handsomely between the world of a sneaker and a casual lace-up, giving you the best of both worlds!', 83.0000, N'20.jpg', N'20.jpg', 0, 0)
+INSERT [dbo].[Product] ([ProductID], [Name], [Description], [Price], [Thumbnail], [Image], [PromoFront], [PromoDept]) VALUES (101, N'Men Xelerate Mid Ducati black-black-high risk red', N'Your fashion story begins when you take your first step into the fashion legacy by wearing this XELERATE MID DUCATI from PUMA. This black casual edition is a beautiful example of style and comfort co-existing in a single shoe with an additional hip-hopper way to outshine.', 73.0000, N'21.jpg', N'21.jpg', 0, 0)
+INSERT [dbo].[Product] ([ProductID], [Name], [Description], [Price], [Thumbnail], [Image], [PromoFront], [PromoDept]) VALUES (102, N'VANS UNISEX VASOUN0094', N'Keep a classy yet contemporary look at all times with this blue sneaker from VANS. Constructed with a canvas upper, it has a simple, relaxed profile while a white rubber welt lends a chill vintage vibe to this comfortable and versatile design.', 82.0000, N'22.jpg', N'22.jpg', 0, 0)
+INSERT [dbo].[Product] ([ProductID], [Name], [Description], [Price], [Thumbnail], [Image], [PromoFront], [PromoDept]) VALUES (103, N'MEN VASOME0366', N'Get the latest trend in design with this pink innovative slip-on from VANS. Intricate stitching details adding style to it, while it''s thickly-padded foot bed keeps you stepping comfortably all day long. Complement your everyday casuals as your feet feel relaxed and happy with every step you take!', 54.0000, N'23.jpg', N'23.jpg', 0, 0)
+INSERT [dbo].[Product] ([ProductID], [Name], [Description], [Price], [Thumbnail], [Image], [PromoFront], [PromoDept]) VALUES (104, N'104192A-NAVY', N'Go from one routine to another effortlessly and comfortably in the navy blue sneakers from CONVERSE.It has fabric lining with cushioned foot bed to keep you comfortable.', 25.0000, N'24.jpg', N'24.jpg', 0, 0)
+INSERT [dbo].[Product] ([ProductID], [Name], [Description], [Price], [Thumbnail], [Image], [PromoFront], [PromoDept]) VALUES (105, N'508665-WHT', N'Inside and out, there''s never a doubt these ALL STAR canvas shoes will definitely make you shout. So turn up the volume and keep on playing with the feet safe inside.', 34.0000, N'25.jpg', N'25.jpg', 0, 0)
+INSERT [dbo].[Product] ([ProductID], [Name], [Description], [Price], [Thumbnail], [Image], [PromoFront], [PromoDept]) VALUES (106, N'03FPL1077-MILTRY GREEN', N'Sport the iconic style of these classic Converse sneakers. Featuring a lace-up closure through metal eyelet details, a rubber capped toe and contrast striping along the front edge, these sleek canvas sneakers are a great everyday look.', 48.0000, N'26.jpg', N'26.jpg', 0, 0)
+INSERT [dbo].[Product] ([ProductID], [Name], [Description], [Price], [Thumbnail], [Image], [PromoFront], [PromoDept]) VALUES (107, N'Adidas Men CAMPUS LACE M', N'Lace up a crisp casual look with this CAMPUS white sneaker from ADIDAS. This shoe is an offering for the fashion-forward guy who''s interested in running a marathon of style. This sneak is all about class and comfort delivering a double dose of feel-good news.', 73.0000, N'27.jpg', N'27.jpg', 0, 0)
+INSERT [dbo].[Product] ([ProductID], [Name], [Description], [Price], [Thumbnail], [Image], [PromoFront], [PromoDept]) VALUES (108, N'Adidas Men DERBY II', N'Destined to never go out of style, this white sneaker from ADIDAS can make you pull off the smart, casual look every day. Guys who take con-tempo fashion seriously will love stepping out in this lace-up even for a party. Swank and so comfortable you''ll want to live in it!', 86.0000, N'28.jpg', N'28.jpg', 0, 0)
+INSERT [dbo].[Product] ([ProductID], [Name], [Description], [Price], [Thumbnail], [Image], [PromoFront], [PromoDept]) VALUES (109, N'Adidas Men CLEMENTE STRIPE LO', N'Entice the very best attempt possible whilst wearing this cool CLEMENTE STRIPE LO sneaker form ADIDAS. It is requisite for the gentlemen who likes to transition from hanging around the dwelling to striking the streets devoid of missing a beat.', 61.0000, N'29.jpg', N'29.jpg', 0, 0)
+INSERT [dbo].[Product] ([ProductID], [Name], [Description], [Price], [Thumbnail], [Image], [PromoFront], [PromoDept]) VALUES (110, N'FILA DLS 95 TRAINING BASKETBALL RUNNING SHOES', N'Best shoe for running and basketball', 212.0000, N'30.jpg', N'30.jpg', 0, 0)
+INSERT [dbo].[Product] ([ProductID], [Name], [Description], [Price], [Thumbnail], [Image], [PromoFront], [PromoDept]) VALUES (111, N'Fila Men''s Disruptor II Sneaker Cross', N'Shoes with Ultimate grip to the ground', 125.0000, N'31.jpg', N'31.jpg', 0, 0)
+INSERT [dbo].[Product] ([ProductID], [Name], [Description], [Price], [Thumbnail], [Image], [PromoFront], [PromoDept]) VALUES (112, N'Mens DLS SLAM', N'LOW Training Basketball Running Shoes ', 172.0000, N'32.jpg', N'32.jpg', 0, 0)
+INSERT [dbo].[Product] ([ProductID], [Name], [Description], [Price], [Thumbnail], [Image], [PromoFront], [PromoDept]) VALUES (113, N'Nike Air Max Closer', N'Basketball Shoes Mens ', 300.0000, N'33.jpg', N'33.jpg', 0, 0)
+INSERT [dbo].[Product] ([ProductID], [Name], [Description], [Price], [Thumbnail], [Image], [PromoFront], [PromoDept]) VALUES (114, N'Nike5 Gato', N'Leather Indoor Soccer Shoes', 350.0000, N'34.jpg', N'34.jpg', 0, 0)
+INSERT [dbo].[Product] ([ProductID], [Name], [Description], [Price], [Thumbnail], [Image], [PromoFront], [PromoDept]) VALUES (115, N'NIKE ZOOM KOBE VII', N'ELITE SERIES SNEAKERS', 233.0000, N'35.jpg', N'35.jpg', 0, 0)
+INSERT [dbo].[Product] ([ProductID], [Name], [Description], [Price], [Thumbnail], [Image], [PromoFront], [PromoDept]) VALUES (116, N'Nike Air', N'Max Destiny TB Basketball', 220.0000, N'36.jpg', N'36.jpg', 0, 0)
+INSERT [dbo].[Product] ([ProductID], [Name], [Description], [Price], [Thumbnail], [Image], [PromoFront], [PromoDept]) VALUES (117, N'Berrick ', N'Stylish shoe', 200.0000, N'37.jpg', N'37.jpg', 0, 0)
+INSERT [dbo].[Product] ([ProductID], [Name], [Description], [Price], [Thumbnail], [Image], [PromoFront], [PromoDept]) VALUES (118, N'bruton al', N'One of the best seller', 219.0000, N'38.jpg', N'38.jpg', 0, 0)
+SET IDENTITY_INSERT [dbo].[Product] OFF
+/****** Object:  Table [dbo].[Department]    Script Date: 11/09/2012 16:24:03 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Department](
+	[DepartmentID] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](50) NOT NULL,
+	[Description] [nvarchar](1000) NULL,
+ CONSTRAINT [PK_Department] PRIMARY KEY CLUSTERED 
+(
+	[DepartmentID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET IDENTITY_INSERT [dbo].[Department] ON
+INSERT [dbo].[Department] ([DepartmentID], [Name], [Description]) VALUES (1, N'Formal', N'Shoes specialising in Office, Party, Disc etc')
+INSERT [dbo].[Department] ([DepartmentID], [Name], [Description]) VALUES (2, N'Casual', N'Shoes specialising in Walking, Wearing at home etc.')
+INSERT [dbo].[Department] ([DepartmentID], [Name], [Description]) VALUES (3, N'Sports', N'Shoes specialising in Running, Walking, Cross- training, Football, Netball and various other outdoor activites.')
+SET IDENTITY_INSERT [dbo].[Department] OFF
+/****** Object:  Table [dbo].[Category]    Script Date: 11/09/2012 16:24:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Category](
+	[CategoryID] [int] IDENTITY(1,1) NOT NULL,
+	[DepartmentID] [int] NOT NULL,
+	[Name] [nvarchar](50) NOT NULL,
+	[Description] [nvarchar](1000) NULL,
+ CONSTRAINT [PK_Category_1] PRIMARY KEY CLUSTERED 
+(
+	[CategoryID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET IDENTITY_INSERT [dbo].[Category] ON
+INSERT [dbo].[Category] ([CategoryID], [DepartmentID], [Name], [Description]) VALUES (1, 1, N'Red Tape', N'Red tape shoes')
+INSERT [dbo].[Category] ([CategoryID], [DepartmentID], [Name], [Description]) VALUES (2, 1, N'Woodland', N'Woodland shoes')
+INSERT [dbo].[Category] ([CategoryID], [DepartmentID], [Name], [Description]) VALUES (3, 1, N'Armani', N'Armani shoes')
+INSERT [dbo].[Category] ([CategoryID], [DepartmentID], [Name], [Description]) VALUES (4, 1, N'Red Chief', N'Red Chief shoes')
+INSERT [dbo].[Category] ([CategoryID], [DepartmentID], [Name], [Description]) VALUES (5, 2, N'Reebok', N' Reebok shoes')
+INSERT [dbo].[Category] ([CategoryID], [DepartmentID], [Name], [Description]) VALUES (6, 2, N'Puma', N'Puma shoes')
+INSERT [dbo].[Category] ([CategoryID], [DepartmentID], [Name], [Description]) VALUES (7, 2, N'Converse', N'Converse shoes')
+INSERT [dbo].[Category] ([CategoryID], [DepartmentID], [Name], [Description]) VALUES (8, 3, N'Addidas', N'Addidas shoes')
+INSERT [dbo].[Category] ([CategoryID], [DepartmentID], [Name], [Description]) VALUES (9, 3, N'Fila', N'Fila shoes')
+INSERT [dbo].[Category] ([CategoryID], [DepartmentID], [Name], [Description]) VALUES (10, 3, N'Nike', N'Nike shoes')
+INSERT [dbo].[Category] ([CategoryID], [DepartmentID], [Name], [Description]) VALUES (11, 3, N'Lacoste', N'Lacoste shoes')
+SET IDENTITY_INSERT [dbo].[Category] OFF
+/****** Object:  Table [dbo].[ProductCategory]    Script Date: 11/09/2012 16:24:03 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ProductCategory](
+	[ProductID] [int] NOT NULL,
+	[CategoryID] [int] NOT NULL,
+ CONSTRAINT [PK_ProductCategory] PRIMARY KEY CLUSTERED 
+(
+	[ProductID] ASC,
+	[CategoryID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+INSERT [dbo].[ProductCategory] ([ProductID], [CategoryID]) VALUES (1, 1)
+INSERT [dbo].[ProductCategory] ([ProductID], [CategoryID]) VALUES (2, 1)
+INSERT [dbo].[ProductCategory] ([ProductID], [CategoryID]) VALUES (3, 1)
+INSERT [dbo].[ProductCategory] ([ProductID], [CategoryID]) VALUES (64, 1)
+INSERT [dbo].[ProductCategory] ([ProductID], [CategoryID]) VALUES (65, 1)
+INSERT [dbo].[ProductCategory] ([ProductID], [CategoryID]) VALUES (66, 1)
+INSERT [dbo].[ProductCategory] ([ProductID], [CategoryID]) VALUES (67, 1)
+INSERT [dbo].[ProductCategory] ([ProductID], [CategoryID]) VALUES (68, 2)
+INSERT [dbo].[ProductCategory] ([ProductID], [CategoryID]) VALUES (69, 2)
+INSERT [dbo].[ProductCategory] ([ProductID], [CategoryID]) VALUES (91, 3)
+INSERT [dbo].[ProductCategory] ([ProductID], [CategoryID]) VALUES (94, 3)
+INSERT [dbo].[ProductCategory] ([ProductID], [CategoryID]) VALUES (95, 3)
+INSERT [dbo].[ProductCategory] ([ProductID], [CategoryID]) VALUES (96, 4)
+INSERT [dbo].[ProductCategory] ([ProductID], [CategoryID]) VALUES (97, 4)
+INSERT [dbo].[ProductCategory] ([ProductID], [CategoryID]) VALUES (98, 5)
+INSERT [dbo].[ProductCategory] ([ProductID], [CategoryID]) VALUES (99, 5)
+INSERT [dbo].[ProductCategory] ([ProductID], [CategoryID]) VALUES (100, 6)
+INSERT [dbo].[ProductCategory] ([ProductID], [CategoryID]) VALUES (101, 6)
+INSERT [dbo].[ProductCategory] ([ProductID], [CategoryID]) VALUES (102, 6)
+INSERT [dbo].[ProductCategory] ([ProductID], [CategoryID]) VALUES (103, 6)
+INSERT [dbo].[ProductCategory] ([ProductID], [CategoryID]) VALUES (104, 7)
+INSERT [dbo].[ProductCategory] ([ProductID], [CategoryID]) VALUES (105, 7)
+INSERT [dbo].[ProductCategory] ([ProductID], [CategoryID]) VALUES (106, 7)
+INSERT [dbo].[ProductCategory] ([ProductID], [CategoryID]) VALUES (107, 8)
+INSERT [dbo].[ProductCategory] ([ProductID], [CategoryID]) VALUES (108, 8)
+INSERT [dbo].[ProductCategory] ([ProductID], [CategoryID]) VALUES (109, 8)
+INSERT [dbo].[ProductCategory] ([ProductID], [CategoryID]) VALUES (110, 9)
+INSERT [dbo].[ProductCategory] ([ProductID], [CategoryID]) VALUES (111, 9)
+INSERT [dbo].[ProductCategory] ([ProductID], [CategoryID]) VALUES (112, 9)
+INSERT [dbo].[ProductCategory] ([ProductID], [CategoryID]) VALUES (113, 10)
+INSERT [dbo].[ProductCategory] ([ProductID], [CategoryID]) VALUES (114, 10)
+INSERT [dbo].[ProductCategory] ([ProductID], [CategoryID]) VALUES (115, 10)
+INSERT [dbo].[ProductCategory] ([ProductID], [CategoryID]) VALUES (116, 10)
+INSERT [dbo].[ProductCategory] ([ProductID], [CategoryID]) VALUES (117, 11)
+INSERT [dbo].[ProductCategory] ([ProductID], [CategoryID]) VALUES (118, 11)
+/****** Object:  ForeignKey [FK_Category_Department]    Script Date: 11/09/2012 16:24:02 ******/
+ALTER TABLE [dbo].[Category]  WITH CHECK ADD  CONSTRAINT [FK_Category_Department] FOREIGN KEY([DepartmentID])
+REFERENCES [dbo].[Department] ([DepartmentID])
+GO
+ALTER TABLE [dbo].[Category] CHECK CONSTRAINT [FK_Category_Department]
+GO
+/****** Object:  ForeignKey [FK_ProductCategory_Category]    Script Date: 11/09/2012 16:24:03 ******/
+ALTER TABLE [dbo].[ProductCategory]  WITH CHECK ADD  CONSTRAINT [FK_ProductCategory_Category] FOREIGN KEY([CategoryID])
+REFERENCES [dbo].[Category] ([CategoryID])
+GO
+ALTER TABLE [dbo].[ProductCategory] CHECK CONSTRAINT [FK_ProductCategory_Category]
+GO
+/****** Object:  ForeignKey [FK_ProductCategory_Product]    Script Date: 11/09/2012 16:24:03 ******/
+ALTER TABLE [dbo].[ProductCategory]  WITH CHECK ADD  CONSTRAINT [FK_ProductCategory_Product] FOREIGN KEY([ProductID])
+REFERENCES [dbo].[Product] ([ProductID])
+GO
+ALTER TABLE [dbo].[ProductCategory] CHECK CONSTRAINT [FK_ProductCategory_Product]
+GO
