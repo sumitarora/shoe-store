@@ -2,11 +2,18 @@
 using System.Data;
 using System.Data.Common;
 
+/// <summary>
+/// Class contains generic data access functionality to be accessed from 
+/// the business tier
+/// </summary>
 public static class GenericDataAccess
 {
     // static constructor 
     static GenericDataAccess()
     {
+        //
+        // TODO: Add constructor logic here
+        //
     }
 
     // executes a command and returns the results as a DataTable object
@@ -48,7 +55,8 @@ public static class GenericDataAccess
         // Obtain the database connection string
         string connectionString = ShoeShopConfiguration.DbConnectionString;
         // Create a new data provider factory
-        DbProviderFactory factory = DbProviderFactories.GetFactory(dataProviderName);
+        DbProviderFactory factory = DbProviderFactories.
+        GetFactory(dataProviderName);
         // Obtain a database specific connection object
         DbConnection conn = factory.CreateConnection();
         // Set the connection string
@@ -60,4 +68,63 @@ public static class GenericDataAccess
         // Return the initialized command object
         return comm;
     }
+
+    // execute an update, delete, or insert command 
+    // and return the number of affected rows
+    public static int ExecuteNonQuery(DbCommand command)
+    {
+        // The number of affected rows 
+        int affectedRows = -1;
+        // Execute the command making sure the connection gets closed in the end
+        try
+        {
+            // Open the connection of the command
+            command.Connection.Open();
+            // Execute the command and get the number of affected rows
+            affectedRows = command.ExecuteNonQuery();
+        }
+        catch (Exception ex)
+        {
+            // Log eventual errors and rethrow them
+            Utilities.LogError(ex);
+            throw;
+        }
+        finally
+        {
+            // Close the connection
+            command.Connection.Close();
+        }
+        // return the number of affected rows
+        return affectedRows;
+    }
+
+    // execute a select command and return a single result as a string
+    public static string ExecuteScalar(DbCommand command)
+    {
+        // The value to be returned 
+        string value = "";
+        // Execute the command making sure the connection gets closed in the end
+        try
+        {
+
+            // Open the connection of the command
+            command.Connection.Open();
+            // Execute the command and get the number of affected rows
+            value = command.ExecuteScalar().ToString();
+        }
+        catch (Exception ex)
+        {
+            // Log eventual errors and rethrow them
+            Utilities.LogError(ex);
+            throw;
+        }
+        finally
+        {
+            // Close the connection
+            command.Connection.Close();
+        }
+        // return the result
+        return value;
+    }
+
 }

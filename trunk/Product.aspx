@@ -13,8 +13,16 @@
   <p>
     <asp:Label ID="descriptionLabel" runat="server" Text="Label"></asp:Label>
   </p>
-  <p>
+    <p>
     <b>Price:</b>
-    <asp:Label CssClass="ProductPrice" ID="priceLabel" runat="server" Text="Label"></asp:Label>
+        <asp:Label CssClass="ProductPrice" ID="priceLabel" runat="server" Text="Label"></asp:Label>
+    </p>
+    <p>
+        <asp:PlaceHolder ID="attrPlaceHolder" runat="server"></asp:PlaceHolder>
+    </p>
+      <p>
+    <asp:LinkButton ID="AddToCartButton" runat="server" 
+     onclick="AddToCartButton_Click">Add to Shopping Cart</asp:LinkButton>
   </p>
+
 </asp:Content>

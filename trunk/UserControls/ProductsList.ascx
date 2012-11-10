@@ -18,6 +18,7 @@ alt='<%# HttpUtility.HtmlEncode(Eval("Name").ToString())%>' />
       Price:
       <%# Eval("Price", "{0:c}") %>
     </p>
+    <asp:PlaceHolder ID="attrPlaceHolder" runat="server"></asp:PlaceHolder>
   </ItemTemplate>
 </asp:DataList>
 <uc1:Pager ID="bottomPager" runat="server" Visible="False" />

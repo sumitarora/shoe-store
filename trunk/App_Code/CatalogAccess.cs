@@ -275,6 +275,23 @@ public static class CatalogAccess
         return table;
     }
 
+    // Retrieve the list of product attributes 
+    public static DataTable GetProductAttributes(string productId)
+    {
+        // get a configured DbCommand object
+        DbCommand comm = GenericDataAccess.CreateCommand();
+        // set the stored procedure name
+        comm.CommandText = "CatalogGetProductAttributeValues";
+        // create a new parameter
+        DbParameter param = comm.CreateParameter();
+        param.ParameterName = "@ProductID";
+        param.Value = productId;
+        param.DbType = DbType.Int32;
+        comm.Parameters.Add(param);
+        // execute the stored procedure and return the results
+        return GenericDataAccess.ExecuteSelectCommand(comm);
+    }
+
     //--------------------------------------------------------------------//
 
     public struct DepartmentDetails
