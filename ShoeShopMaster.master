@@ -29,12 +29,12 @@
         <div class="mycart">
         <div class="top-links">
         <ul>
-            <li><a href="#">Home</a></li>
+            <li><a href="Default.aspx">Home</a></li>
             <li><a href="#">Checkout</a></li>
             <li><a href="#">Contact Us</a></li>
         </ul>
         </div>
-        <a href="#" title="View My Cart"><img src="Images/mycart.png" /></a></div>
+        <a href="ShoppingCart.aspx" title="View My Cart"><img src="Images/mycart.png" /></a></div>
     </div>
     <table style="border:1px solid gray; border-collapse: collapse;">
     <tr>

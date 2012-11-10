@@ -54,7 +54,7 @@ public partial class ShoppingCart: System.Web.UI.Page
     // Remove the product from the shopping cart
     bool success = ShoppingCartAccess.RemoveItem(productId);
     // Display status
-    statusLabel.Text = success ? "Product successfully removed!" :
+    statusLabel.Text = success ? "<div class=\"success\">Product successfully removed!</div>" :
                   "There was an error removing the product! ";
     // Repopulate the control
     PopulateControls();

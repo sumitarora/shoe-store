@@ -4,13 +4,17 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+    <p><asp:Label CssClass="ptitle" ID="titleLabel" runat="server" Text="Label"></asp:Label></p>
+    <table>
+<tr>
+<td style="width:400px">
+
   <p>
-    <asp:Label CssClass="CatalogTitle" ID="titleLabel" runat="server" Text="Label"></asp:Label>
+    <asp:Image ID="productImage" Height="350px" runat="server" />
   </p>
-  <p>
-    <asp:Image ID="productImage" runat="server" />
-  </p>
-  <p>
+</td>
+<td style="width:300px; text-align:justify;">
+<p>
     <asp:Label ID="descriptionLabel" runat="server" Text="Label"></asp:Label>
   </p>
     <p>
@@ -20,9 +24,14 @@
     <p>
         <asp:PlaceHolder ID="attrPlaceHolder" runat="server"></asp:PlaceHolder>
     </p>
-      <p>
-    <asp:LinkButton ID="AddToCartButton" runat="server" 
-     onclick="AddToCartButton_Click">Add to Shopping Cart</asp:LinkButton>
+      
+    <p>
+        <asp:Button ID="AddtoCartBtn" runat="server" onclick="AddToCartButton_Click" Text="Add to Cart" CssClass="button" />
   </p>
+</td>
+</tr>
+</table>
+   
+  
 
 </asp:Content>

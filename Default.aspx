@@ -4,11 +4,8 @@
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="head">
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
-    <h2>
-        Welcome to ShoeShop
-    </h2>
-    <h2>
-        <span class="CatalogDescription">This week we have a special price for these fantastic products: </span>
-    </h2>
+<div class="ptitle">Welcome to ShoeStore.com</div>
+
+    <img src="Images/cover.jpg" width="762px" style="border:1px solid gray; padding:2px;" />
 </asp:Content>
 
