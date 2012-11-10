@@ -141,3 +141,43 @@ ol li a:hover
     background-color:#8181F7;
     color:White;
 }
+
+.ptitle
+{
+    background-color:#6E6E6E;
+    border:1px solid #424242;
+    color:White;
+    font-size:24px;
+    font-weight:bold;
+    padding:8px 8px 8px 50px;    
+    background-image:url('../../Images/shopping_cart.png');
+    background-repeat: no-repeat;
+    background-position: 10px center;
+}
+
+.button
+{
+ color:White;
+ background-color:#8181F7;
+ padding:5px;
+ border:none;
+ cursor:pointer;   
+}
+
+.success {
+  color: #4F8A10;
+  background-color: #DFF2BF;
+  background-image:url('../../Images/success.png');
+  border: 1px solid;
+  margin: 10px 0px;
+  padding:15px 10px 15px 40px;
+  background-repeat: no-repeat;
+  background-position: 10px center;
+}
+
+.amtTotal 
+{
+    text-align:right;
+    font-weight:bold;
+    font-size:16px;
+}
