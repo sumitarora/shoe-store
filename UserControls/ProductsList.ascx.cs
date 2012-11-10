@@ -4,12 +4,51 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data;
 
 public partial class UserControls_ProductsList : System.Web.UI.UserControl
 {
     protected void Page_Load(object sender, EventArgs e)
     {
         PopulateControls();
+    }
+
+    // Executed when each item of the list is bound to the data source
+    protected void ItemDataBound(object sender, DataListItemEventArgs e)
+    {
+        // obtain the attributes of the product
+        DataRowView dataRow = (DataRowView)e.Item.DataItem;
+        string productId = dataRow["ProductID"].ToString();
+        DataTable attrTable = CatalogAccess.GetProductAttributes(productId);
+        // get the attribute placeholder
+        PlaceHolder attrPlaceHolder = (PlaceHolder)e.Item.FindControl("attrPlaceHolder");
+        // temp variables
+        string prevAttributeName = "";
+        string attributeName, attributeValue, attributeValueId;
+        // current DropDown for attribute values
+        Label attributeNameLabel;
+        DropDownList attributeValuesDropDown = new DropDownList();
+        // read the list of attributes
+        foreach (DataRow r in attrTable.Rows)
+        {
+            // get attribute data
+            attributeName = r["AttributeName"].ToString();
+            attributeValue = r["AttributeValue"].ToString();
+            attributeValueId = r["AttributeValueID"].ToString();
+            // if starting a new attribute (e.g. Color, Size)
+            if (attributeName != prevAttributeName)
+            {
+                prevAttributeName = attributeName;
+                attributeNameLabel = new Label();
+                attributeNameLabel.Text = attributeName + ": ";
+                attributeValuesDropDown = new DropDownList();
+                attrPlaceHolder.Controls.Add(attributeNameLabel);
+                attrPlaceHolder.Controls.Add(attributeValuesDropDown);
+            }
+            // add a new attribute value to the DropDownList
+            attributeValuesDropDown.Items.Add(new ListItem(attributeValue, attributeValueId));
+        }
+
     }
 
     private void PopulateControls()
