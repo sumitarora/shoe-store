@@ -292,6 +292,569 @@ public static class CatalogAccess
         return GenericDataAccess.ExecuteSelectCommand(comm);
     }
 
+
+    //--------------------------------Admin-------------------------------//
+    // Add a new department
+    public static bool AddDepartment(string name, string description)
+    {
+        // get a configured DbCommand object
+        DbCommand comm = GenericDataAccess.CreateCommand();
+        // set the stored procedure name
+        comm.CommandText = "CatalogAddDepartment";
+        // create a new parameter
+        DbParameter param = comm.CreateParameter();
+        param.ParameterName = "@DepartmentName";
+        param.Value = name;
+        param.DbType = DbType.String;
+        param.Size = 50;
+        comm.Parameters.Add(param);
+        // create a new parameter
+        param = comm.CreateParameter();
+        param.ParameterName = "@DepartmentDescription";
+        param.Value = description;
+        param.DbType = DbType.String;
+        param.Size = 1000;
+        comm.Parameters.Add(param);
+        // result will represent the number of changed rows
+        int result = -1;
+        try
+        {
+            // execute the stored procedure
+            result = GenericDataAccess.ExecuteNonQuery(comm);
+        }
+        catch
+        {
+            // any errors are logged in GenericDataAccess, we ignore them here
+        }
+        // result will be 1 in case of success 
+        return (result != -1);
+    }
+
+
+    // Update department details
+    public static bool UpdateDepartment(string id, string name, string description)
+    {
+        // get a configured DbCommand object
+        DbCommand comm = GenericDataAccess.CreateCommand();
+        // set the stored procedure name
+        comm.CommandText = "CatalogUpdateDepartment";
+        // create a new parameter
+        DbParameter param = comm.CreateParameter();
+        param.ParameterName = "@DepartmentId";
+        param.Value = id;
+        param.DbType = DbType.Int32;
+        comm.Parameters.Add(param);
+        // create a new parameter
+        param = comm.CreateParameter();
+        param.ParameterName = "@DepartmentName";
+        param.Value = name;
+        param.DbType = DbType.String;
+        param.Size = 50;
+        comm.Parameters.Add(param);
+
+        // create a new parameter
+        param = comm.CreateParameter();
+        param.ParameterName = "@DepartmentDescription";
+        param.Value = description;
+        param.DbType = DbType.String;
+        param.Size = 1000;
+        comm.Parameters.Add(param);
+        // result will represent the number of changed rows
+        int result = -1;
+        try
+        {
+            // execute the stored procedure
+            result = GenericDataAccess.ExecuteNonQuery(comm);
+        }
+        catch
+        {
+            // any errors are logged in GenericDataAccess, we ignore them here
+        }
+        // result will be 1 in case of success 
+        return (result != -1);
+    }
+
+    // Delete department
+    public static bool DeleteDepartment(string id)
+    {
+        // get a configured DbCommand object
+        DbCommand comm = GenericDataAccess.CreateCommand();
+        // set the stored procedure name
+        comm.CommandText = "CatalogDeleteDepartment";
+        // create a new parameter
+        DbParameter param = comm.CreateParameter();
+        param.ParameterName = "@DepartmentId";
+        param.Value = id;
+        param.DbType = DbType.Int32;
+        comm.Parameters.Add(param);
+        // execute the stored procedure; an error will be thrown by the
+        // database if the department has related categories, in which case
+        // it is not deleted
+        int result = -1;
+        try
+        {
+            result = GenericDataAccess.ExecuteNonQuery(comm);
+        }
+        catch
+        {
+
+            // any errors are logged in GenericDataAccess, we ignore them here
+        }
+        // result will be 1 in case of success
+        return (result != -1);
+    }
+
+    // Create a new Category
+    public static bool CreateCategory(string departmentId,
+     string name, string description)
+    {
+        // get a configured DbCommand object
+        DbCommand comm = GenericDataAccess.CreateCommand();
+        // set the stored procedure name
+        comm.CommandText = "CatalogCreateCategory";
+        // create a new parameter
+        DbParameter param = comm.CreateParameter();
+        param.ParameterName = "@DepartmentID";
+        param.Value = departmentId;
+        param.DbType = DbType.Int32;
+        comm.Parameters.Add(param);
+        // create a new parameter
+        param = comm.CreateParameter();
+        param.ParameterName = "@CategoryName";
+        param.Value = name;
+        param.DbType = DbType.String;
+        param.Size = 50;
+        comm.Parameters.Add(param);
+        // create a new parameter
+        param = comm.CreateParameter();
+        param.ParameterName = "@CategoryDescription";
+        param.Value = description;
+        param.DbType = DbType.String;
+        param.Size = 1000;
+        comm.Parameters.Add(param);
+        // result will represent the number of changed rows
+        int result = -1;
+        try
+        {
+            // execute the stored procedure
+            result = GenericDataAccess.ExecuteNonQuery(comm);
+        }
+        catch
+        {
+            // any errors are logged in GenericDataAccess, we ignore them here
+        }
+        // result will be 1 in case of success 
+        return (result != -1);
+    }
+
+    // Update category details
+    public static bool UpdateCategory(string id, string name, string description)
+    {
+        // get a configured DbCommand object
+        DbCommand comm = GenericDataAccess.CreateCommand();
+        // set the stored procedure name
+        comm.CommandText = "CatalogUpdateCategory";
+        // create a new parameter
+        DbParameter param = comm.CreateParameter();
+        param.ParameterName = "@CategoryId";
+        param.Value = id;
+        param.DbType = DbType.Int32;
+        comm.Parameters.Add(param);
+        // create a new parameter
+        param = comm.CreateParameter();
+        param.ParameterName = "@CategoryName";
+        param.Value = name;
+        param.DbType = DbType.String;
+        param.Size = 50;
+        comm.Parameters.Add(param);
+        // create a new parameter
+        param = comm.CreateParameter();
+        param.ParameterName = "@CategoryDescription";
+        param.Value = description;
+        param.DbType = DbType.String;
+        param.Size = 1000;
+        comm.Parameters.Add(param);
+        // result will represent the number of changed rows
+        int result = -1;
+        try
+        {
+            // execute the stored procedure
+            result = GenericDataAccess.ExecuteNonQuery(comm);
+        }
+        catch
+        {
+            // any errors are logged in GenericDataAccess, we ignore them here
+        }
+        // result will be 1 in case of success 
+        return (result != -1);
+    }
+
+
+    // Delete Category
+    public static bool DeleteCategory(string id)
+    {
+        // get a configured DbCommand object
+        DbCommand comm = GenericDataAccess.CreateCommand();
+        // set the stored procedure name
+        comm.CommandText = "CatalogDeleteCategory";
+        // create a new parameter
+        DbParameter param = comm.CreateParameter();
+        param.ParameterName = "@CategoryId";
+        param.Value = id;
+        param.DbType = DbType.Int32;
+        comm.Parameters.Add(param);
+        // execute the stored procedure; an error will be thrown by the
+        // database if the Category has related categories, in which case
+        // it is not deleted
+        int result = -1;
+        try
+        {
+            result = GenericDataAccess.ExecuteNonQuery(comm);
+        }
+        catch
+        {
+            // any errors are logged in GenericDataAccess, we ignore them here
+        }
+        // result will be 1 in case of success
+        return (result != -1);
+    }
+
+    // get categories that contain a specified product
+    public static DataTable GetCategoriesWithProduct(string productId)
+    {
+        // get a configured DbCommand object
+        DbCommand comm = GenericDataAccess.CreateCommand();
+        // set the stored procedure name
+        comm.CommandText = "CatalogGetCategoriesWithProduct";
+        // create a new parameter
+        DbParameter param = comm.CreateParameter();
+        param.ParameterName = "@ProductID";
+        param.Value = productId;
+        param.DbType = DbType.Int32;
+        comm.Parameters.Add(param);
+        // execute the stored procedure
+        return GenericDataAccess.ExecuteSelectCommand(comm);
+    }
+
+    // get categories that do not contain a specified product
+    public static DataTable GetCategoriesWithoutProduct(string productId)
+    {
+        // get a configured DbCommand object
+        DbCommand comm = GenericDataAccess.CreateCommand();
+        // set the stored procedure name
+        comm.CommandText = "CatalogGetCategoriesWithoutProduct";
+        // create a new parameter
+        DbParameter param = comm.CreateParameter();
+        param.ParameterName = "@ProductID";
+        param.Value = productId;
+        param.DbType = DbType.Int32;
+        comm.Parameters.Add(param);
+        // execute the stored procedure
+        return GenericDataAccess.ExecuteSelectCommand(comm);
+    }
+
+    // assign a product to a new category
+    public static bool AssignProductToCategory(string productId, string categoryId)
+    {
+        // get a configured DbCommand object
+        DbCommand comm = GenericDataAccess.CreateCommand();
+        // set the stored procedure name
+        comm.CommandText = "CatalogAssignProductToCategory";
+        // create a new parameter
+        DbParameter param = comm.CreateParameter();
+        param.ParameterName = "@ProductID";
+        param.Value = productId;
+        param.DbType = DbType.Int32;
+        comm.Parameters.Add(param);
+        // create a new parameter
+        param = comm.CreateParameter();
+        param.ParameterName = "@CategoryID";
+        param.Value = categoryId;
+        param.DbType = DbType.Int32;
+        comm.Parameters.Add(param);
+        // result will represent the number of changed rows
+        int result = -1;
+        try
+        {
+            // execute the stored procedure
+            result = GenericDataAccess.ExecuteNonQuery(comm);
+        }
+        catch
+        {
+            // any errors are logged in GenericDataAccess, we ignore them here
+        }
+        // result will be 1 in case of success 
+        return (result != -1);
+    }
+
+    // move product to a new category
+    public static bool MoveProductToCategory(string productId, string oldCategoryId,
+     string newCategoryId)
+    {
+        // get a configured DbCommand object
+        DbCommand comm = GenericDataAccess.CreateCommand();
+        // set the stored procedure name
+        comm.CommandText = "CatalogMoveProductToCategory";
+        // create a new parameter
+        DbParameter param = comm.CreateParameter();
+        param.ParameterName = "@ProductID";
+
+        param.Value = productId;
+        param.DbType = DbType.Int32;
+        comm.Parameters.Add(param);
+        // create a new parameter
+        param = comm.CreateParameter();
+        param.ParameterName = "@OldCategoryID";
+        param.Value = oldCategoryId;
+        param.DbType = DbType.Int32;
+        comm.Parameters.Add(param);
+        // create a new parameter
+        param = comm.CreateParameter();
+        param.ParameterName = "@NewCategoryID";
+        param.Value = newCategoryId;
+        param.DbType = DbType.Int32;
+        comm.Parameters.Add(param);
+        // result will represent the number of changed rows
+        int result = -1;
+        try
+        {
+            // execute the stored procedure
+            result = GenericDataAccess.ExecuteNonQuery(comm);
+        }
+        catch
+        {
+            // any errors are logged in GenericDataAccess, we ignore them here
+        }
+        // result will be 1 in case of success 
+        return (result != -1);
+    }
+
+    // removes a product from a category 
+    public static bool RemoveProductFromCategory(string productId, string categoryId)
+    {
+        // get a configured DbCommand object
+        DbCommand comm = GenericDataAccess.CreateCommand();
+        // set the stored procedure name
+        comm.CommandText = "CatalogRemoveProductFromCategory";
+        // create a new parameter
+        DbParameter param = comm.CreateParameter();
+        param.ParameterName = "@ProductID";
+        param.Value = productId;
+        param.DbType = DbType.Int32;
+        comm.Parameters.Add(param);
+        // create a new parameter
+        param = comm.CreateParameter();
+        param.ParameterName = "@CategoryID";
+        param.Value = categoryId;
+        param.DbType = DbType.Int32;
+        comm.Parameters.Add(param);
+        // result will represent the number of changed rows
+        int result = -1;
+        try
+        {
+            // execute the stored procedure
+            result = GenericDataAccess.ExecuteNonQuery(comm);
+        }
+        catch
+        {
+            // any errors are logged in GenericDataAccess, we ignore them here
+        }
+        // result will be 1 in case of success 
+        return (result != -1);
+    }
+
+    // deletes a product from the product catalog
+    public static bool DeleteProduct(string productId)
+    {
+        // get a configured DbCommand object
+        DbCommand comm = GenericDataAccess.CreateCommand();
+        // set the stored procedure name
+        comm.CommandText = "CatalogDeleteProduct";
+        // create a new parameter
+        DbParameter param = comm.CreateParameter();
+        param.ParameterName = "@ProductID";
+        param.Value = productId;
+        param.DbType = DbType.Int32;
+        comm.Parameters.Add(param);
+        // result will represent the number of changed rows
+        int result = -1;
+        try
+        {
+            // execute the stored procedure
+            result = GenericDataAccess.ExecuteNonQuery(comm);
+        }
+        catch
+        {
+            // any errors are logged in GenericDataAccess, we ignore them here
+        }
+        // result will be 1 in case of success 
+        return (result != -1);
+    }
+
+
+    // Update an existing product
+    public static bool UpdateProduct(string productId, string name, string description, string price, string Thumbnail, string Image, string PromoDept, string PromoFront)
+    {
+        // get a configured DbCommand object
+        DbCommand comm = GenericDataAccess.CreateCommand();
+        // set the stored procedure name
+        comm.CommandText = "CatalogUpdateProduct";
+        // create a new parameter
+        DbParameter param = comm.CreateParameter();
+        param.ParameterName = "@ProductID";
+        param.Value = productId;
+        param.DbType = DbType.Int32;
+        comm.Parameters.Add(param);
+        // create a new parameter
+        param = comm.CreateParameter();
+        param.ParameterName = "@ProductName";
+        param.Value = name;
+        param.DbType = DbType.String;
+        param.Size = 50;
+        comm.Parameters.Add(param);
+        // create a new parameter
+        param = comm.CreateParameter();
+        param.ParameterName = "@ProductDescription";
+        param.Value = description;
+        param.DbType = DbType.String;
+        comm.Parameters.Add(param);
+        // create a new parameter
+        param = comm.CreateParameter();
+        param.ParameterName = "@Price";
+        param.Value = price;
+        param.DbType = DbType.Decimal;
+        comm.Parameters.Add(param);
+        // create a new parameter
+        param = comm.CreateParameter();
+        param.ParameterName = "@Thumbnail";
+        param.Value = Thumbnail;
+        param.DbType = DbType.String;
+        param.Size = 50;
+        comm.Parameters.Add(param);
+        // create a new parameter
+        param = comm.CreateParameter();
+        param.ParameterName = "@Image";
+        param.Value = Image;
+        param.DbType = DbType.String;
+        param.Size = 50;
+        comm.Parameters.Add(param);
+        // create a new parameter
+        param = comm.CreateParameter();
+        param.ParameterName = "@PromoDept";
+        param.Value = PromoDept;
+        param.DbType = DbType.Boolean;
+        comm.Parameters.Add(param);
+        // create a new parameter
+        param = comm.CreateParameter();
+        param.ParameterName = "@PromoFront";
+        param.Value = PromoFront;
+        param.DbType = DbType.Boolean;
+        comm.Parameters.Add(param);
+        // result will represent the number of changed rows
+        int result = -1;
+        try
+        {
+            // execute the stored procedure
+            result = GenericDataAccess.ExecuteNonQuery(comm);
+        }
+        catch
+        {
+            // any errors are logged in GenericDataAccess, we ignore them here
+        }
+        // result will be 1 in case of success 
+        return (result != -1);
+    }
+
+    // Create a new product
+    public static bool CreateProduct(string categoryId, string name, string description, string price, string Thumbnail, string Image, string PromoDept, string PromoFront)
+    {
+        // get a configured DbCommand object
+        DbCommand comm = GenericDataAccess.CreateCommand();
+        // set the stored procedure name
+        comm.CommandText = "CatalogCreateProduct";
+        // create a new parameter
+        DbParameter param = comm.CreateParameter();
+        param.ParameterName = "@CategoryID";
+        param.Value = categoryId;
+        param.DbType = DbType.Int32;
+        comm.Parameters.Add(param);
+        // create a new parameter
+        param = comm.CreateParameter();
+        param.ParameterName = "@ProductName";
+        param.Value = name;
+        param.DbType = DbType.String;
+        param.Size = 50;
+        comm.Parameters.Add(param);
+        // create a new parameter
+        param = comm.CreateParameter();
+        param.ParameterName = "@ProductDescription";
+        param.Value = description;
+        param.DbType = DbType.String;
+        comm.Parameters.Add(param);
+        // create a new parameter
+        param = comm.CreateParameter();
+        param.ParameterName = "@Price";
+        param.Value = price;
+        param.DbType = DbType.Decimal;
+        comm.Parameters.Add(param);
+        // create a new parameter
+        param = comm.CreateParameter();
+        param.ParameterName = "@Thumbnail";
+        param.Value = Thumbnail;
+        param.DbType = DbType.String;
+        comm.Parameters.Add(param);
+        // create a new parameter
+        param = comm.CreateParameter();
+        param.ParameterName = "@Image";
+        param.Value = Image;
+        param.DbType = DbType.String;
+        comm.Parameters.Add(param);
+        // create a new parameter
+        param = comm.CreateParameter();
+        param.ParameterName = "@PromoDept";
+        param.Value = PromoDept;
+        param.DbType = DbType.Boolean;
+        comm.Parameters.Add(param);
+        // create a new parameter
+        param = comm.CreateParameter();
+        param.ParameterName = "@PromoFront";
+        param.Value = PromoFront;
+        param.DbType = DbType.Boolean;
+        comm.Parameters.Add(param);
+        // result will represent the number of changed rows
+        int result = -1;
+        try
+        {
+            // execute the stored procedure
+            result = GenericDataAccess.ExecuteNonQuery(comm);
+        }
+        catch
+        {
+            // any errors are logged in GenericDataAccess, we ignore them here
+        }
+        // result will be 1 in case of success 
+        return (result >= 1);
+    }
+
+    // retrieve the list of products in a category
+    public static DataTable GetAllProductsInCategory(string categoryId)
+    {
+        // get a configured DbCommand object
+        DbCommand comm = GenericDataAccess.CreateCommand();
+        // set the stored procedure name
+        comm.CommandText = "CatalogGetAllProductsInCategory";
+        // create a new parameter
+        DbParameter param = comm.CreateParameter();
+        param.ParameterName = "@CategoryID";
+        param.Value = categoryId;
+        param.DbType = DbType.Int32;
+        comm.Parameters.Add(param);
+        // execute the stored procedure and save the results in a DataTable
+        DataTable table = GenericDataAccess.ExecuteSelectCommand(comm);
+        return table;
+    }
+
+
     //--------------------------------------------------------------------//
 
     public struct DepartmentDetails

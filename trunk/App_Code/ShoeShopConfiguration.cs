@@ -71,5 +71,47 @@ public static class ShoeShopConfiguration
             return dbProviderName;
         }
     }
+
+    // The PayPal shopping cart URL
+    public static string PaypalUrl
+    {
+        get
+        {
+            return ConfigurationManager.AppSettings["PaypalUrl"];
+        }
+    }
+    // The PayPal email account
+    public static string PaypalEmail
+    {
+        get
+        {
+            return ConfigurationManager.AppSettings["PaypalEmail"];
+        }
+    }
+
+    // Currency code (such as USD)
+    public static string PaypalCurrency
+    {
+        get
+        {
+            return ConfigurationManager.AppSettings["PaypalCurrency"];
+        }
+    }
+    // Return URL after a successful transaction
+    public static string PaypalReturnUrl
+    {
+        get
+        {
+            return ConfigurationManager.AppSettings["PaypalReturnUrl"];
+        }
+    }
+    // Return URL after a canceled transaction
+    public static string PaypalCancelUrl
+    {
+        get
+        {
+            return ConfigurationManager.AppSettings["PaypalCancelUrl"];
+        }
+    }
 }
 

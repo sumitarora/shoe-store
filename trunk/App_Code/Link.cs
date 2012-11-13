@@ -6,6 +6,31 @@ using System.Web;
 /// </summary>
 public class Link
 {
+    public static string ToPayPalViewCart()
+    {
+        return HttpUtility.UrlPathEncode(
+        String.Format("{0}&business={1}&return={2}&cancel return={3}&display=1",
+        ShoeShopConfiguration.PaypalUrl,
+        ShoeShopConfiguration.PaypalEmail,
+        ShoeShopConfiguration.PaypalReturnUrl,
+        ShoeShopConfiguration.PaypalCancelUrl));
+    }
+
+    public static string ToPayPalAddItem(string productUrl, string productName, decimal productPrice, string productOptions)
+    {
+        return HttpUtility.UrlPathEncode(
+        String.Format("{0}&business={1}&return={2}&cancel return={3}&shopping url={4}&item name={5}&amount={6:0.00}&currency={7}&on0=Options&os0={8}&add=1",
+        ShoeShopConfiguration.PaypalUrl,
+        ShoeShopConfiguration.PaypalEmail,
+        ShoeShopConfiguration.PaypalReturnUrl,
+        ShoeShopConfiguration.PaypalCancelUrl,
+        productUrl,
+        productName,
+        productPrice,
+        ShoeShopConfiguration.PaypalCurrency,
+        productOptions));
+    }
+
     // Builds an absolute URL
     private static string BuildAbsolute(string relativeUri)
     {
