@@ -14,7 +14,7 @@
       </a>
     </h3>
     <a href="<%# Link.ToProduct(Eval("ProductID").ToString()) %>">
-      <img width="100" border="0" 
+      <img width="100" height="100" border="0" 
 src="<%# Link.ToProductImage(Eval("Thumbnail").ToString()) %>" 
 alt='<%# HttpUtility.HtmlEncode(Eval("Name").ToString())%>' />
     </a><br />
