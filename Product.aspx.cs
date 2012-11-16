@@ -28,7 +28,7 @@ public partial class Product : System.Web.UI.Page
     private void PopulateControls(CatalogAccess.ProductDetails pd)
     {
         // Display product details
-        titleLabel.Text = pd.Name;
+        titleLabel.Text = "<div class=\"ptitle\">" + pd.Name + "</div>";
         descriptionLabel.Text = pd.Description;
         priceLabel.Text = String.Format("{0:c}", pd.Price);
         productImage.ImageUrl = "ProductImages/" + pd.Image;

@@ -17,17 +17,18 @@
         <ContentTemplate>
           <tr>
             <td class="UserInfoHead">
-              <asp:LoginName ID="LoginName2" runat="server" FormatString="Hello, <b>{0}</b>!" />
+           
+              <h3><asp:LoginName ID="LoginName2" runat="server" FormatString="Hello, <b>{0}</b>!" /></h3>
             </td>
           </tr>            
           <tr>
-            <td class="UserInfoContent">              
-              <asp:LoginStatus ID="LoginStatus2" runat="server" />
-              <br />
-              <a href="/Project">ShoeShop</a>   
-              <br />
-              <a href="AdminDepartments.aspx">Catalog Admin</a>
-            </td>
+            <td class="UserInfoContent"> 
+             <ol>
+             <li><asp:LoginStatus ID="LoginStatus2" runat="server" /></li>                 
+              <li><a href="Default.aspx">ShoeShop</a></li>
+              <li><a href="AdminDepartments.aspx" class="<% %>">Catalog Admin</a></li>
+              </ol>             
+            </td>   
           </tr>          
         </ContentTemplate>
       </asp:RoleGroup>

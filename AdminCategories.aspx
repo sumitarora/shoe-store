@@ -1,21 +1,24 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.master" AutoEventWireup="true" CodeFile="AdminCategories.aspx.cs" Inherits="AdminCategories" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/ShoeShopMaster.master" AutoEventWireup="true" CodeFile="AdminCategories.aspx.cs" Inherits="AdminCategories" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="titlePlaceHolder" runat="Server">
-  <span class="AdminTitle">
-    BalloonShop Admin
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+ 
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+ <span class="AdminTitle">
+    ShoeStore Admin
     <br />
     Categories in 
     <asp:HyperLink ID="deptLink" runat="server" />
   </span>
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="adminPlaceHolder" Runat="Server">
   <p>
-    <asp:Label ID="statusLabel" runat="server" Text=""></asp:Label>
+   <div class="ptitle"><asp:Label ID="statusLabel" runat="server"></asp:Label></div> 
   </p>
   <asp:GridView ID="grid" runat="server" DataKeyNames="CategoryID" 
     AutoGenerateColumns="False" Width="100%" 
     onrowcancelingedit="grid_RowCancelingEdit" onrowdeleting="grid_RowDeleting" 
-    onrowediting="grid_RowEditing" onrowupdating="grid_RowUpdating">
+    onrowediting="grid_RowEditing" onrowupdating="grid_RowUpdating" 
+        BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" 
+        CellPadding="4" ForeColor="Black" GridLines="Horizontal">
     <Columns>
       <asp:BoundField DataField="Name" HeaderText="Category Name" SortExpression="Name" />
       <asp:TemplateField HeaderText="Category Description" SortExpression="Description">
@@ -36,12 +39,21 @@
       <asp:CommandField ShowEditButton="True" />
       <asp:ButtonField CommandName="Delete" Text="Delete" />
     </Columns>
+      <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
+      <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
+      <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
+      <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
+      <SortedAscendingCellStyle BackColor="#F7F7F7" />
+      <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
+      <SortedDescendingCellStyle BackColor="#E5E5E5" />
+      <SortedDescendingHeaderStyle BackColor="#242121" />
   </asp:GridView>
-  <p>Create a new category:</p>
+  <br /><br />
+  <h3>Create a new category:</h3><hr />
   <p>Name:</p>
-  <asp:TextBox ID="newName" runat="server" Width="400px" />
+  <asp:TextBox ID="newName" runat="server" Width="400px" CssClass="loginTBox" />
   <p>Description:</p>
-  <asp:TextBox ID="newDescription" runat="server" Width="400px" Height="70px" TextMode="MultiLine" />
-  <p><asp:Button ID="createCategory" Text="Create Category" runat="server" 
+  <asp:TextBox ID="newDescription" runat="server" Width="400px" Height="70px" TextMode="MultiLine" CssClass="loginTBox"  />
+  <p><asp:Button ID="createCategory" Text="Create Category" runat="server"  CssClass="button"
       onclick="createCategory_Click" /></p>
 </asp:Content>

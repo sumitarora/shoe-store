@@ -22,7 +22,7 @@ public partial class Catalog : System.Web.UI.Page
         {
             // Retrieve category and department details and display them
             CatalogAccess.CategoryDetails cd = CatalogAccess.GetCategoryDetails(categoryId);
-            catalogTitleLabel.Text = "<div class=\"ptitle\">" + HttpUtility.HtmlEncode(cd.Name) + "</div>";
+            catalogTitleLabel.Text = "<div class=\"ptitle\">" + cd.Name + "</div>";
             CatalogAccess.DepartmentDetails dd = CatalogAccess.GetDepartmentDetails(departmentId);
             catalogDescriptionLabel.Text = HttpUtility.HtmlEncode(cd.Description);
             // Set the title of the page
@@ -33,7 +33,7 @@ public partial class Catalog : System.Web.UI.Page
         {
             // Retrieve department details and display them
             CatalogAccess.DepartmentDetails dd = CatalogAccess.GetDepartmentDetails(departmentId);
-            catalogTitleLabel.Text = HttpUtility.HtmlEncode(dd.Name);
+            catalogTitleLabel.Text = "<div class=\"ptitle\">" + HttpUtility.HtmlEncode(dd.Name) + "</div>";
             catalogDescriptionLabel.Text = 
             HttpUtility.HtmlEncode(dd.Description);
             // Set the title of the page

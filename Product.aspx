@@ -4,7 +4,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <p><asp:Label CssClass="ptitle" ID="titleLabel" runat="server" Text="Label"></asp:Label></p>
+    <p><asp:Label ID="titleLabel" runat="server" Text="Label"></asp:Label></p>
     <table>
 <tr>
 <td style="width:400px">
