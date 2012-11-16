@@ -89,13 +89,6 @@ public partial class Product : System.Web.UI.Page
 
         // Add the product to the shopping cart
         ShoppingCartAccess.AddItem(productId, options);
-
-        // Retrieves product details
-        CatalogAccess.ProductDetails pd = CatalogAccess.GetProductDetails(productId);
-        // The Add to Cart link
-        string productUrl = Link.ToProduct(pd.ProductID.ToString());
-        string destination = Link.ToPayPalAddItem(productUrl, pd.Name, pd.Price,options);
-        Response.Redirect(destination);
     }
 
 }

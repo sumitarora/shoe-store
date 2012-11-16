@@ -256,4 +256,23 @@ public class ShoppingCartAccess
     }
   }
 
+  // Create a new order from the shopping cart
+  public static string CreateOrder()
+  {
+      // get a configured DbCommand object
+      DbCommand comm = GenericDataAccess.CreateCommand();
+      // set the stored procedure name
+      comm.CommandText = "CreateOrder";
+      // create a new parameter
+      DbParameter param = comm.CreateParameter();
+      param.ParameterName = "@CartID";
+      param.Value = shoppingCartId;
+      param.DbType = DbType.String;
+      param.Size = 36;
+      comm.Parameters.Add(param);
+      // return the result table
+      return GenericDataAccess.ExecuteScalar(comm);
+  }
+
+
 }

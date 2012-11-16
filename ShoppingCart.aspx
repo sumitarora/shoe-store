@@ -49,5 +49,7 @@
   <p align="right">
     <asp:Button ID="updateButton" runat="server" Text="Update Quantities"  CssClass="button"
       onclick="updateButton_Click" />
+    <asp:Button ID="checkoutButton" runat="server" Text="Proceed to Checkout"  CssClass="button"
+      OnClick="checkoutButtonClick" />
   </p>
 </asp:Content>
