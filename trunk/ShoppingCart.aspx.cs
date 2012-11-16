@@ -18,30 +18,32 @@ public partial class ShoppingCart: System.Web.UI.Page
   // fill shopping cart controls with data
   private void PopulateControls()
   {
-    // get the items in the shopping cart
-    DataTable dt = ShoppingCartAccess.GetItems();
-    // if the shopping cart is empty...
-    if (dt.Rows.Count == 0)
-    {
-      titleLabel.Text = "Your shopping cart is empty!";
-      grid.Visible = false;
-      updateButton.Enabled = false;
-      totalAmountLabel.Text = String.Format("{0:c}", 0);
-    }
-    else
-    // if the shopping cart is not empty...
-    {
-      // populate the list with the shopping cart contents
-      grid.DataSource = dt;
-      grid.DataBind();
-      // setup controls
-      titleLabel.Text = "These are the products in your shopping cart:";
-      grid.Visible = true;
-      updateButton.Enabled = true;
-      // display the total amount
-      decimal amount = ShoppingCartAccess.GetTotalAmount();
-      totalAmountLabel.Text = String.Format("{0:c}", amount);
-    }
+      // get the items in the shopping cart
+      DataTable dt = ShoppingCartAccess.GetItems();
+      // if the shopping cart is empty...
+      if (dt.Rows.Count == 0)
+      {
+          titleLabel.Text = "Your shopping cart is empty!";
+          grid.Visible = false;
+          updateButton.Enabled = false;
+          checkoutButton.Enabled = false;
+          totalAmountLabel.Text = String.Format("{0:c}", 0);
+      }
+      else
+      // if the shopping cart is not empty...
+      {
+          // populate the list with the shopping cart contents
+          grid.DataSource = dt;
+          grid.DataBind();
+          // setup controls
+          titleLabel.Text = "These are the products in your shopping cart:";
+          grid.Visible = true;
+          updateButton.Enabled = true;
+          checkoutButton.Enabled = true;
+          // display the total amount
+          decimal amount = ShoppingCartAccess.GetTotalAmount();
+          totalAmountLabel.Text = String.Format("{0:c}", amount);
+      }
   }
 
   // remove a product from the cart
@@ -59,6 +61,19 @@ public partial class ShoppingCart: System.Web.UI.Page
     // Repopulate the control
     PopulateControls();
   }
+
+ // create a new order and redirect to a payment page
+    protected void checkoutButtonClick(object sender, EventArgs e)
+    {
+        // Get the total amount
+        decimal amount = ShoppingCartAccess.GetTotalAmount();
+        // Create the order and store the order ID
+        string orderId = ShoppingCartAccess.CreateOrder();
+        string ordername = ShoeShopConfiguration.SiteName + " Order " + orderId;
+        // Go to PayPal checkout
+        string destination = Link.ToPayPalCheckout(ordername, amount);
+        Response.Redirect(destination);
+    }
 
   // update shopping cart product quantities
   protected void updateButton_Click(object sender, EventArgs e)

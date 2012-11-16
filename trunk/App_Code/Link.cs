@@ -6,6 +6,19 @@ using System.Web;
 /// </summary>
 public class Link
 {
+    public static string ToPayPalCheckout(string orderName, decimal orderAmount)
+    {
+        return HttpUtility.UrlPathEncode(
+        String.Format("{0}/business={1}&item name={2}&amount={3:0.00}&currency ={4}&return={5}&cancel return={6}",
+        ShoeShopConfiguration.PaypalUrl,
+        ShoeShopConfiguration.PaypalEmail,
+        orderName,
+        orderAmount,
+        ShoeShopConfiguration.PaypalCurrency,
+        ShoeShopConfiguration.PaypalReturnUrl,
+        ShoeShopConfiguration.PaypalCancelUrl));
+    }
+
     public static string ToPayPalViewCart()
     {
         return HttpUtility.UrlPathEncode(
