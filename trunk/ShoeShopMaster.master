@@ -10,7 +10,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
-  <title>BalloonShop: Online Store Demo</title>
+  <title>ShoeStore: Online Store Demo</title>
   <asp:ContentPlaceHolder id="head" runat="server">
   </asp:ContentPlaceHolder>
   <link rel="stylesheet" type="text/css" href="App_Themes/ShoeShopDefault/mainpage.css" />
@@ -19,7 +19,7 @@
   <form id="form1" runat="server">
 <div class="window">
     <div class="header">
-        <div class="site-name">Shoe Store<img alt=""  src="images/logo.png" /></div>
+        <div class="site-name">ShoeStore</div>
         <div class="search">
             <input type="text" name="skeyword" id="skeyword" class="searchbox" />  
         </div>

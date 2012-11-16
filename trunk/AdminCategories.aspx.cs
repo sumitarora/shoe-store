@@ -21,6 +21,7 @@ public partial class AdminCategories : System.Web.UI.Page
       string departmentName = dd.Name + "</b>";
       // Link to department
       deptLink.Text = departmentName;
+      deptTitle.Text = "<div class=\"ptitle\"> " + departmentName + "</div>";
       deptLink.NavigateUrl = "AdminDepartments.aspx";
     }
   }
@@ -42,7 +43,7 @@ public partial class AdminCategories : System.Web.UI.Page
     // Set the row for which to enable edit mode
     grid.EditIndex = e.NewEditIndex;
     // Set status message 
-    statusLabel.Text = "Editing row # " + e.NewEditIndex.ToString();
+    statusLabel.Text = "<div class=\"info\">Editing row # " + e.NewEditIndex.ToString() + "</div>";
     // Reload the grid
     BindGrid();
   }
@@ -54,7 +55,7 @@ public partial class AdminCategories : System.Web.UI.Page
     // Cancel edit mode
     grid.EditIndex = -1;
     // Set status message
-    statusLabel.Text = "Editing canceled";
+    statusLabel.Text = "<div class=\"fail\">Editing canceled</div>";
     // Reload the grid
     BindGrid();
   }
@@ -71,7 +72,7 @@ public partial class AdminCategories : System.Web.UI.Page
     // Cancel edit mode
     grid.EditIndex = -1;
     // Display status message
-    statusLabel.Text = success ? "Update successful" : "Update failed";
+    statusLabel.Text = success ? "<div class=\"success\">Update successful</div>" : "<div class=\"fail\">Update failed</div>";
     // Reload the grid
     BindGrid();
   }
@@ -86,7 +87,7 @@ public partial class AdminCategories : System.Web.UI.Page
     // Cancel edit mode
     grid.EditIndex = -1;
     // Display status message
-    statusLabel.Text = success ? "Delete successful" : "Delete failed";
+    statusLabel.Text = success ? "<div class=\"success\">Delete successful</div>" : "<div class=\"fail\">Delete failed</div>";
     // Reload the grid
     BindGrid();
   }

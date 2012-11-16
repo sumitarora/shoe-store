@@ -4,15 +4,15 @@
  
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
- <span class="AdminTitle">
+    <span class="AdminTitle">
     ShoeStore Admin
     <br />
     Categories in 
     <asp:HyperLink ID="deptLink" runat="server" />
   </span>
-  <p>
-   <div class="ptitle"><asp:Label ID="statusLabel" runat="server"></asp:Label></div> 
-  </p>
+  
+  <p>  <asp:Label ID="deptTitle" runat="server"></asp:Label>  </p>
+  <p><asp:Label ID="statusLabel" runat="server"></asp:Label></p>
   <asp:GridView ID="grid" runat="server" DataKeyNames="CategoryID" 
     AutoGenerateColumns="False" Width="100%" 
     onrowcancelingedit="grid_RowCancelingEdit" onrowdeleting="grid_RowDeleting" 

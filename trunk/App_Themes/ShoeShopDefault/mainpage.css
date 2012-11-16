@@ -28,6 +28,8 @@ a, img
     border:1px solid gray;
     color:White;
     font-weight:bold;
+    background-image:url('../../Images/header.png');
+    background-size:998px 140px;
 }
 
 .left
@@ -68,9 +70,12 @@ a, img
 .site-name 
 {
     float:left;
-    padding-top:30px;
-    width: 250px;
+    padding-top:45px;
+    width: 230px;
     height: 36px;
+    font-size:40px;
+    padding-left:20px;
+    color:#2E2E2E;
 }
 
 .seachbuttonDiv 
@@ -138,6 +143,11 @@ ol li a:hover
     height: 19px;
 }
 
+.top-links a
+{
+    color:White;
+}
+
 .top-links ul
 {
     list-style-type: none;
@@ -190,6 +200,29 @@ ol li a:hover
   background-repeat: no-repeat;
   background-position: 10px center;
 }
+
+.fail {
+  color: #FF0040;
+  background-color: #F5A9BC;
+  background-image:url('../../Images/fail.png');
+  border: 1px solid;
+  margin: 10px 0px;
+  padding:15px 10px 15px 40px;
+  background-repeat: no-repeat;
+  background-position: 10px center;
+}
+
+.info {
+  color: #5858FA;
+  background-color: #CECEF6;
+  background-image:url('../../Images/info.png');
+  border: 1px solid;
+  margin: 10px 0px;
+  padding:15px 10px 15px 40px;
+  background-repeat: no-repeat;
+  background-position: 10px center;
+}
+
 
 .amtTotal 
 {
