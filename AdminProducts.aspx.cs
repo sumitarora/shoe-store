@@ -20,6 +20,7 @@ public partial class AdminProducts : System.Web.UI.Page
       string categoryName = cd.Name;
       // Link to department
       catLink.Text = categoryName;
+      catTitle.Text = "<div class=\"ptitle\">" + categoryName + "</div>";
       catLink.NavigateUrl = "AdminCategories.aspx?DepartmentID=" + departmentId;   
       // Load the products grid
       BindGrid();

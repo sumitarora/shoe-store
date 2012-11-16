@@ -1,11 +1,12 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="ProductsList.ascx.cs" Inherits="UserControls_ProductsList" %>
 <%@ Register src="Pager.ascx" tagname="Pager" tagprefix="uc1" %>
 <uc1:Pager ID="topPager" runat="server" Visible="False" />
-<asp:DataList ID="list" runat="server" RepeatColumns="3" CssClass="" 
-    BorderWidth="5px" CellPadding="15" Font-Bold="False" Font-Italic="False" Width="100%"
+<asp:DataList ID="list" runat="server" RepeatColumns="3"
+    BorderWidth="5px" CellPadding="15" Font-Bold="False" Font-Italic="False" Width="100%" 
     Font-Overline="False" Font-Strikeout="False" Font-Underline="False" 
     GridLines="Both" HorizontalAlign="Left" RepeatDirection="Horizontal">
   <ItemTemplate>
+  <div style="width:210px">
     <h3 class="ProductTitle">
       <a 
       href="<%# Link.ToProduct(Eval("ProductID").ToString()) %>"
@@ -25,6 +26,7 @@ alt='<%# HttpUtility.HtmlEncode(Eval("Name").ToString())%>' />
     </p>
     <p><input type="button" class="button" value="View Product" /></p>
     <asp:PlaceHolder ID="attrPlaceHolder" runat="server"></asp:PlaceHolder>
+</div>
   </ItemTemplate>
 </asp:DataList>
 <p>
