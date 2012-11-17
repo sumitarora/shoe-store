@@ -2,7 +2,7 @@
 {
     font-family:Arial;
     font-size:12px;
-    background-color:Gray;
+    background-color:#CECED1;
 }
 
 a, img 
@@ -24,19 +24,20 @@ a, img
 .header
 {
     width:998px;
-    height:140px;
+    height:130px;
     border:1px solid gray;
     color:White;
     font-weight:bold;
-    background-image:url('../../Images/header.png');
-    background-size:998px 140px;
+    /*background-image:url('../../Images/header.jpg');
+    background-size:998px 160px;*/
+    background-color:#283F6D;
 }
 
 .left
 {
    width:200px;
    vertical-align:top;
-   border:1px solid gray;
+
    padding:5px;
 }
   
@@ -45,7 +46,7 @@ a, img
     width:800px;
     padding:10px;
     vertical-align:top;
-    border:1px solid gray;
+
 }
   
 
@@ -56,6 +57,10 @@ a, img
     border:1px solid gray;
     padding-left:350px;
     padding-top:30px;
+    /*background-image:url('../../Images/header.jpg');
+    background-size:998px 100px;*/
+    color:White;
+    background-color:#283F6D;
 }
 
 .search
@@ -75,7 +80,7 @@ a, img
     height: 36px;
     font-size:40px;
     padding-left:20px;
-    color:#2E2E2E;
+    color:#FFF;
 }
 
 .seachbuttonDiv 
@@ -94,25 +99,42 @@ a, img
 
 ol
 {
-    list-style-type:none;
-    font-size: 85%;
+    list-style-type:disc;
+    font-size: 12px;
     margin:0 !important;
     padding:0 !important;
     list-style-position: inside !important;
+    border:1px solid black;
+}
+
+ol li
+{
+
 }
 
 ol li a
 {
-    padding:10px;
+    padding:5px;
     display:block;
     font-size:14px;
     text-decoration:none; 
+    color:Black;
 }
 
 ol li a:hover
 {
     background-color:#5858FA;
     color:White;
+}
+
+.sideBarTitle
+{
+    background-color:#49587A;
+    font-weight:bold;
+    font-size:15px;
+    padding:5px;
+    color:White;
+     list-style-type:none;
 }
 
 .mycart
@@ -164,13 +186,13 @@ ol li a:hover
 .activeLink
 {
     font-weight:bold;
-    background-color:#8181F7;
-    color:White;
+
 }
 
 .ptitle
 {
-    background-color:#6E6E6E;
+    margin-top:-4px;
+    background-color:#49587A;
     border:1px solid #424242;
     color:White;
     font-size:24px;
@@ -184,7 +206,7 @@ ol li a:hover
 .button
 {
  color:White;
- background-color:#2E2EFE;
+ background-color:#49587A;
  padding:8px 20px 8px 20px;
  border:none;
  cursor:pointer;   

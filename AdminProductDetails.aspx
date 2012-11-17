@@ -6,12 +6,11 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
+<div class="ptitle"><asp:Label ID="productNameLabel" runat="server" /></div>
+<br />
   <span class="AdminTitle">
-    ShoeStore Admin<br />
     Products in <asp:HyperLink ID="catLink" runat="server" />
   </span>
-  <br />
-  <p><div class="ptitle"><asp:Label ID="productNameLabel" runat="server" /></div> </p> 
   <p>
     <asp:Label ID="statusLabel" CssClass="AdminError" runat="server" />
   </p>

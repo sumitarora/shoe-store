@@ -4,14 +4,14 @@
  
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+  
+  
+  <asp:Label ID="deptTitle" runat="server"></asp:Label>
+  <br />
     <span class="AdminTitle">
-    ShoeStore Admin
-    <br />
     Categories in 
     <asp:HyperLink ID="deptLink" runat="server" />
   </span>
-  
-  <p>  <asp:Label ID="deptTitle" runat="server"></asp:Label>  </p>
   <p><asp:Label ID="statusLabel" runat="server"></asp:Label></p>
   <asp:GridView ID="grid" runat="server" DataKeyNames="CategoryID" 
     AutoGenerateColumns="False" Width="100%" 

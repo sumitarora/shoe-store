@@ -1,7 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="CartSummary.ascx.cs" Inherits="UserControls_CartSummary" %>
 <table class="CartSummary" border="0" cellpadding="0" cellspacing="1" width="200">
   <tr>
-    <td>
+    <td style="padding:5px;">
       <b>
         <asp:Label ID="cartSummaryLabel" runat="server" /></b>
       <asp:HyperLink ID="viewCartLink" runat="server" NavigateUrl="../ShoppingCart.aspx"
@@ -13,10 +13,10 @@
           <%# Eval("Name") %>
         </ItemTemplate>
       </asp:DataList>
-      <img src="Images/line.gif" border="0" width="99%" height="1" />
-      Total: <span class="ProductPrice">
+      <hr />
+      <b>Total: <span class="ProductPrice">
         <asp:Label ID="totalAmountLabel" runat="server" />
-      </span>
+      </span></b>
     </td>
   </tr>
 </table>

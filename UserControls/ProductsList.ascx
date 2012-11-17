@@ -7,7 +7,7 @@
     GridLines="Both" HorizontalAlign="Left" RepeatDirection="Horizontal">
   <ItemTemplate>
   <div style="width:210px">
-    <h3 class="ProductTitle">
+    <h3>
       <a 
       href="<%# Link.ToProduct(Eval("ProductID").ToString()) %>"
       >
