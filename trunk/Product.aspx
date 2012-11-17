@@ -4,14 +4,14 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <p><asp:Label ID="titleLabel" runat="server" Text="Label"></asp:Label></p>
+    <asp:Label ID="titleLabel" runat="server" Text="Label"></asp:Label>
     
     <table>
 <tr>
 <td style="width:500px">
 
   <p>
-    <asp:Image ID="productImage" Width="400px" runat="server" />
+    <asp:Image ID="productImage" Width="350px" runat="server" />
   </p>
 </td>
 <td style="width:300px; text-align:justify;">

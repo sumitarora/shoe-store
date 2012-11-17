@@ -5,12 +5,12 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
- <span class="AdminTitle">
-    ShoeShop Admin
-    <br />
+ 
+  <asp:Label ID="catTitle" runat="server" ></asp:Label>
+  <br />
+  <span class="AdminTitle">
     Products in <asp:HyperLink ID="catLink" runat="server" />
   </span>
-  <p><asp:Label ID="catTitle" runat="server" ></asp:Label></p>
     <p><asp:Label ID="statusLabel" runat="server" ></asp:Label></p>
   <asp:GridView ID="grid" runat="server" DataKeyNames="ProductID" 
     AutoGenerateColumns="False" Width="100%" 

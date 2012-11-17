@@ -4,7 +4,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-<p><div class="ptitle">List of available Departments</div></p>
+<div class="ptitle">List of available Departments</div>
   <p>
     <asp:Label ID="statusLabel" runat="server" Text=""></asp:Label>
   </p>

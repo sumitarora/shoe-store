@@ -35,22 +35,26 @@
             <li><a href="#">Contact Us</a></li>
         </ul>
         </div>
-        <a href="ShoppingCart.aspx" title="View My Cart"><img src="Images/mycart.png" /></a></div>
+        <a href="ShoppingCart.aspx" title="View My Cart"><img src="Images/mycart.png" width="60px" /></a></div>
     </div>
-    <table style="border:1px solid gray; border-collapse: collapse;">
+    <table style="border:1px solid gray; vertical-align:top;">
     <tr>
     <td class="left"> 
+
     <uc4:UserInfo ID="UserInfo1" runat="server" />
-    <h2>Type</h2>
+    <br />
     <ol>
+    <li class="sideBarTitle">Type</li>
         <uc1:DepartmentsList ID="DepartmentsList1" runat="server" />        
     </ol>
-    <h2>Brand</h2>
+ <br />
     <ol>
+    <li class="sideBarTitle">Brand</li>
         <uc2:CategoriesList ID="CategoriesList1" runat="server" />
     </ol>
-    <h2>Cart Summary</h2>
+    <br />
     <ol>
+    <li class="sideBarTitle">Cart Summary</li>
         <uc5:CartSummary ID="CartSummary1" runat="server" />
     </ol>
     <p>
