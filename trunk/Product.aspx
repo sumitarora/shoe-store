@@ -28,11 +28,13 @@
       
     <p>
         <asp:Button ID="AddtoCartBtn" runat="server" onclick="AddToCartButton_Click" Text="Add to Cart" CssClass="button" />
+        <asp:Button ID="Add2Compare" runat="server" Text="Add To Compare" CssClass="button" onclick="Add2Compare_Click" />
   </p>
+       <asp:Label ID="status" runat="server"></asp:Label>
 </td>
 </tr>
 </table>
-   
+
   
 
 </asp:Content>

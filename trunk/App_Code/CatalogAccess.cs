@@ -292,6 +292,38 @@ public static class CatalogAccess
         return GenericDataAccess.ExecuteSelectCommand(comm);
     }
 
+    public static void AddToCompare(string user_ip, String product_id)
+    {
+        int pro_id = int.Parse(product_id);
+
+        DbCommand comm = GenericDataAccess.CreateCommand();
+        comm.CommandText = "ADDTOCOMPARE";
+        DbParameter param = comm.CreateParameter();
+        param.ParameterName = "@USER_IP";
+        param.Value = user_ip;
+        param.DbType = DbType.String;
+        param.Size = 100;
+        comm.Parameters.Add(param);
+
+        param = comm.CreateParameter();
+        param.ParameterName = "@PRODUCT_ID";
+        param.Value = pro_id;
+        param.DbType = DbType.Int32;
+        comm.Parameters.Add(param);
+        int result = -1;
+        try
+        {
+            // execute the stored procedure
+            result = GenericDataAccess.ExecuteNonQuery(comm);
+        }
+        catch
+        {
+            // any errors are logged in GenericDataAccess, we ignore them here
+        }
+        // result will be 1 in case of success 
+    }
+
+
 
     //--------------------------------Admin-------------------------------//
     // Add a new department
@@ -852,6 +884,77 @@ public static class CatalogAccess
         // execute the stored procedure and save the results in a DataTable
         DataTable table = GenericDataAccess.ExecuteSelectCommand(comm);
         return table;
+    }
+
+    public static DataTable GetProductComparison(String user_ip)
+    {
+        DbCommand comm = GenericDataAccess.CreateCommand();
+        comm.CommandText = "COMPAREPRODUCTS";
+        DbParameter param = comm.CreateParameter();
+        param.ParameterName = "@USER_IP";
+        param.Value = user_ip;
+        param.DbType = DbType.String;
+        param.Size = 100;
+        comm.Parameters.Add(param);
+
+        DataTable compareTable = GenericDataAccess.ExecuteSelectCommand(comm);
+        return compareTable;
+    }
+
+    public static bool RemoveAllComparison(String user_ip)
+    {
+        DbCommand comm = GenericDataAccess.CreateCommand();
+        comm.CommandText = "REMOVE_ALL_COMPARISON";
+        DbParameter param = comm.CreateParameter();
+        param.ParameterName = "@USER_IP";
+        param.Value = user_ip;
+        param.Size = 100;
+        param.DbType = DbType.String;
+        comm.Parameters.Add(param);
+
+        int result = -1;
+        try
+        {
+            // execute the stored procedure
+            result = GenericDataAccess.ExecuteNonQuery(comm);
+        }
+        catch
+        {
+            // any errors are logged in GenericDataAccess, we ignore them here
+        }
+        // result will be 1 in case of success 
+        return (result != -1);
+    }
+
+    public static bool RemoveComparison(String user_ip, String product_id)
+    {
+        DbCommand comm = GenericDataAccess.CreateCommand();
+        comm.CommandText = "REMOVE_COMPARISON";
+        DbParameter param = comm.CreateParameter();
+        param.ParameterName = "@USER_IP";
+        param.Value = user_ip;
+        param.Size = 100;
+        param.DbType = DbType.String;
+        comm.Parameters.Add(param);
+
+        param = comm.CreateParameter();
+        param.ParameterName = "@PRODUCT_ID";
+        param.Value = product_id;
+        param.DbType = DbType.Int32;
+        comm.Parameters.Add(param);
+
+        int result = -1;
+        try
+        {
+            // execute the stored procedure
+            result = GenericDataAccess.ExecuteNonQuery(comm);
+        }
+        catch
+        {
+            // any errors are logged in GenericDataAccess, we ignore them here
+        }
+        // result will be 1 in case of success 
+        return (result != -1);
     }
 
 
