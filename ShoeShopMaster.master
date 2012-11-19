@@ -32,7 +32,7 @@
         <ul>
             <li><a href="Default.aspx">Home</a></li>
             <li><a href="#">Checkout</a></li>
-            <li><a href="#">Contact Us</a></li>
+            <li><a href="Compare.aspx">Compare</a></li>
         </ul>
         </div>
         <a href="ShoppingCart.aspx" title="View My Cart"><img src="Images/mycart.png" width="60px" /></a></div>

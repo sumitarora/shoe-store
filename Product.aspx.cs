@@ -89,6 +89,15 @@ public partial class Product : System.Web.UI.Page
 
         // Add the product to the shopping cart
         ShoppingCartAccess.AddItem(productId, options);
+        status.Text = "<div class=\"success\">Added to <a href=\"ShoppingCart.aspx\">Cart</a></div>";
     }
 
+    protected void Add2Compare_Click(object sender, EventArgs e)
+    {
+        String product_id = Request.QueryString["ProductID"];
+        
+
+        CatalogAccess.AddToCompare(Session["user_ip_add"].ToString(), product_id);
+        status.Text = "<div class=\"success\">Added for <a href=\"compare.aspx\">Comparison</a></div>";
+    }
 }
