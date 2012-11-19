@@ -11,8 +11,24 @@
 <td style="width:500px">
 
   <p>
-    <asp:Image ID="productImage" Width="350px" runat="server" />
+    <asp:Image ID="productImage" Width="350px" runat="server" />      
   </p>
+  <center>
+  <a href="https://www.facebook.com/dialog/feed?
+  app_id=458358780877780&
+  link=https://developers.facebook.com/docs/reference/dialogs/&
+  picture=http://fbrell.com/f8.jpg&
+  name=Facebook%20Dialogs&
+  caption=Reference%20Documentation&
+  description=Using%20Dialogs%20to%20interact%20with%20users.&
+  redirect_uri=https://mighty-lowlands-6381.herokuapp.com/" target="_blank"><image src="Images\facebook_button.png" /></a>
+
+<!-- Facebook share button End -->
+
+<a href="http://twitter.com/share?url=http://www.shoeshop.com&text=This shoes is awesome buy it..." target="_blank">
+<image src="Images\twitter_button.png" /></a>
+</center>
+
 </td>
 <td style="width:300px; text-align:justify;">
 <p>

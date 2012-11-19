@@ -8,8 +8,17 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:og="http://ogp.me/ns#" 
+xmlns:fb="https://www.facebook.com/2008/fbml">
 <head id="Head1" runat="server">
+    <meta property="og:title" content="Product Name"/>
+    <meta property="og:type" content="Shopping"/>
+    <meta property="og:url" content="http://www.website.com/product/75"/>
+    <meta property="og:image" content="http://www.website.com/product.jpg"/>
+    <meta property="og:site_name" content="WEBSITE"/>
+    <meta property="og:description" content="Product Description "/>
+
   <title>ShoeStore: Online Store Demo</title>
   <asp:ContentPlaceHolder id="head" runat="server">
   </asp:ContentPlaceHolder>

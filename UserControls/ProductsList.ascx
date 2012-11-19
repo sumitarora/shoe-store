@@ -24,7 +24,10 @@ alt='<%# HttpUtility.HtmlEncode(Eval("Name").ToString())%>' />
       Price:
       <%# Eval("Price", "{0:c}") %>
     </p>
-    <p><input type="button" class="button" value="View Product" /></p>
+    <p><a 
+      href="<%# Link.ToProduct(Eval("ProductID").ToString()) %>"
+      >
+      <input type="button" class="button" value="View Product" /></a></p>
     <asp:PlaceHolder ID="attrPlaceHolder" runat="server"></asp:PlaceHolder>
 </div>
   </ItemTemplate>
