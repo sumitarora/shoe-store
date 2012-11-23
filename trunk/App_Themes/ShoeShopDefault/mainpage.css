@@ -99,7 +99,7 @@ a, img
 
 ol
 {
-    list-style-type:disc;
+    list-style-type:none;
     font-size: 12px;
     margin:0 !important;
     padding:0 !important;
@@ -147,7 +147,7 @@ ol li a:hover
 
 .mycart img
 {
-    padding-top:20px;
+    margin-top:20px;
 }
 
 .header-text
@@ -224,9 +224,9 @@ ol li a:hover
 }
 
 .fail {
-  color: #FF0040;
-  background-color: #F5A9BC;
-  background-image:url('../../Images/fail.png');
+  color: #B01E1E;
+  background-color: #FFC0C0;
+  background-image:url('../../Images/remove.gif');
   border: 1px solid;
   margin: 10px 0px;
   padding:15px 10px 15px 40px;

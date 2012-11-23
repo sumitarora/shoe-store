@@ -52,12 +52,14 @@ public partial class Compare : System.Web.UI.Page
                     newTable.Rows.InsertAt(newPicRow, 0);
 
                     GenerateGridColumns(newTable);
+                    newTable.Rows[1].Delete();
                     gv_productCompare.DataSource = newTable;
                     for (int k = 1; k < newTable.Columns.Count; k++)
                     {
                         gv_productCompare.Columns[k].ItemStyle.Width = 170;
                     }
                     gv_productCompare.RowStyle.Height = 40;
+
                     gv_productCompare.DataBind();
                 }
                 else
@@ -130,6 +132,7 @@ public partial class Compare : System.Web.UI.Page
         if (result == true)
         {
             compareStatus.Text = "<div class=\"success\">All items removed</div>";
+            gv_productCompare.DataSource = null;
         }
         else
         {
