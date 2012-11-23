@@ -6,7 +6,7 @@
     <div class="ptitle">Product Comparison</div>
     <p><asp:Label ID="compareStatus" runat="server"></asp:Label></p>
     <p>
-        <asp:GridView ID="gv_productCompare" runat="server" BackColor="White" 
+        <asp:GridView ID="gv_productCompare" runat="server" BackColor="White"
             BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" 
             ForeColor="Black" GridLines="Vertical">
             <AlternatingRowStyle BackColor="#CCCCCC" />
