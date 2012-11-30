@@ -27,6 +27,10 @@ public partial class Product : System.Web.UI.Page
     // Fill the control with data
     private void PopulateControls(CatalogAccess.ProductDetails pd)
     {
+        //lkFacebook.NavigateUrl = "https://www.facebook.com/dialog/feed?app_id=458358780877780&link=https://developers.facebook.com/docs/reference/dialogs/&picture=http://fbrell.com/f8.jpg&name=Facebook%20Dialogs&caption=Reference%20Documentation&description=Using%20Dialogs%20to%20interact%20with%20users.&redirect_uri=http://shoeshop.com/";
+        lkFacebook.NavigateUrl = "http://www.facebook.com/sharer.php?u=http://www.shoeshop.com";
+        
+        lkTwitter.NavigateUrl = "http://twitter.com/share?url=http://www.shoeshop.com&text= I just bought shoe " + pd.Name + " for " + String.Format("{0:c}", pd.Price) + " from ";
         // Display product details
         titleLabel.Text = "<div class=\"ptitle\">" + pd.Name + "</div>";
         descriptionLabel.Text = pd.Description;

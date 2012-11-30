@@ -70,7 +70,7 @@ xmlns:fb="https://www.facebook.com/2008/fbml">
         <asp:HyperLink ID="PayPalViewCart" runat="server" NavigateUrl=<%#Link.ToPayPalViewCart() %>>Your Shopping Cart</asp:HyperLink>
     </p>
     <td class="right">
-    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">sdsd
             </asp:ContentPlaceHolder>
     </td>
     </tr>
